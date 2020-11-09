@@ -1,0 +1,16 @@
+.power-ups-grid{
+    display: grid;
+    grid-row: 1;
+    grid-column: 1;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; /* 6 fractions for 6 power ups, could add more however this is the target as of creation */
+    grid-template-columns: 1fr; /* 1 fr because further divs will seperate the interior columns */
+}
+
+.power-up{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-rows: 25% 1fr 25%;
+}
+
+
+
