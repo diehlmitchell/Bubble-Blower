@@ -1,4 +1,4 @@
-<link rel="stylesheet" href = "./View/Public/CSS/power-up-styles.css">
+<link rel="stylesheet" href = "./View/Public/Styles/power-up-styles.css">
 
 <?php
 $powerUpsArray = array (    // array("Actual Image Name","Alt","Display Name", amount)
