@@ -26,38 +26,35 @@
 <!-- Web Grid -->
 
     <div class='web-grid'>
-        <!-- navbar -->
-            <div class='navbar-grid'>
-                <!-- Navbar Center -->
-                    <div class='navbar-center'>
-                        <h1>Bubble Blower</h1>
-                    </div>
+
+                       
+        <!-- Left Side -->
+            <?php
+                include './View/power-ups.php';
+            ?>
+        <!-- Left Side -->
+
+        <!-- Center  -->
+            <div class='bubble-pics' style='background-image: url(./View/Public/Images/Bubble.gif);'>
+                <h1>Bubble Blower</h1>
+                <img class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
-                <!-- Navbar Center -->
-        <!-- navbar -->
+        <!-- Center  -->
 
         <!-- Introduction -->
-            <div class='bubble-gif-grid'>
-                <!-- Bubble Intro -->
-                    <img class='bubble-gif' src='./View/Public/Images/Bubble.gif'>
-                    <img class='bubble-png' src='./View/Public/Images/Bubble.png'>
-                <!-- Bubble Intro -->
-            </div>
+           
         <!-- Introduction -->
 
-        <!-- Footer -->
-        <div class='footer'>
-            <!-- Bubble Intro -->
-            <div class='footer-grid'>
-                
+        <!-- Class Scoreboard -->
+            <div class='scoreboard'>
+                <!-- Bubble Intro -->
+                <div class=''>
+                    
+                </div>
+                <!-- Bubble Intro -->
             </div>
-            <!-- Bubble Intro -->
-        </div>
-        <!-- Footer -->
-
- <?php
-    include './View/power-ups.php';
- ?>
+        <!-- Class Scoreboard -->
+    </div>
     
     
     

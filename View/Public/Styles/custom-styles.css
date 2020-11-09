@@ -7,33 +7,20 @@ html, body {
     background-color: #ffffff;
     margin: 0;
 }
+
 .web-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-}
-
-.navbar-grid{
-    display: grid;
-}
-
-.intro-grid {
-    grid-row: 2;
-    display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
 }
 
-.bubble-gif-grid{
-    grid-column: 1;
-    height: 100%;
+.bubble-pics {
+    height: 1005px;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 500px;
-    margin: 40px 715px;
+    width: 932px;
 }
-
 .bubble-gif {
-    grid-column: 1;
     height: 83%;
     width: 664px;
     position: relative;
@@ -42,8 +29,9 @@ html, body {
 
 .bubble-png {
     position: relative;
-    bottom: 707px;
-    left: 25px;
+    top: 56px;
+    left: 248px;
     height: auto;
-    width: 396px;
+    width: 429px;
+    cursor: pointer;
 }
