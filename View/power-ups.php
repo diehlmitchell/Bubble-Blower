@@ -1,4 +1,4 @@
-<link rel="stylesheet" href = "./Public/CSS/power-up-styles.css">
+<link rel="stylesheet" href = "./View/Public/CSS/power-up-styles.css">
 
 <?php
 $powerUpsArray = array (    // array("Actual Image Name","Alt","Display Name", amount)
@@ -18,7 +18,7 @@ $powerUpsArray = array (    // array("Actual Image Name","Alt","Display Name", a
         {
             echo"
                 <div class = 'power-up'>
-                    <img src='./Public/Images/Power-Ups/{$powerUpsArray[$X][0]}'>
+                    <img src='./View/Public/Images/Power-Ups/{$powerUpsArray[$X][0]}'>
                     <p>{$powerUpsArray[$X][2]}</p>
                     <p>{$powerUpsArray[$X][3]}</p>
                 </div>
