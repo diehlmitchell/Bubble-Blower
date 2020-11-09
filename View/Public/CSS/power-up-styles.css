@@ -9,7 +9,21 @@
 .power-up{
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-rows: 25% 1fr 25%;
+    grid-template-columns: 20% 1fr 20%;
+    border: solid black 5px;
+}
+
+.power-up > img{
+    width: 80%;
+    height: 100%;    
+    border-right: solid black 5px;
+}
+
+.power-up > p{
+    text-align: center;
+    /* margin: left 20px; */
+    font-size: 100px;
+
 }
 
 
