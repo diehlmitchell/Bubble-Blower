@@ -37,13 +37,13 @@
         <!-- Center  -->
             <div class='bubble-pics' style='background-image: url(./View/Public/Images/Bubble.gif);'>
                 <h1>Bubble Blower</h1>
-                <img class='bubble-png' src='./View/Public/Images/Bubble.png'>
+                <img  id='bubble-size' class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
         <!-- Center  -->
 
         <!-- Introduction -->
            
-        <!-- Introduction -->
+        <!-- Introduction onClick='bubbleClicker()' -->
 
         <!-- Class Scoreboard -->
             <div class='scoreboard'>
@@ -54,22 +54,36 @@
                 <!-- Bubble Intro -->
             </div>
         <!-- Class Scoreboard -->
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    </div>  
 </div>
+
+    <script>
+
+        // var myVar = null;
+        // img = document.getElementById("bubble-size"); 
+
+        // function bubbleClicker()
+        // {
+        //     img.classList.remove("clickClass");
+        //     img.classList.add("clickClass");
+        // }
+
+        // function myStopFunction() 
+        // {
+        //     clearInterval(myVar);
+        // }
+
+        // img = document.getElementById("bubble-size"); 
+
+        // function bubbleClicker()
+        // {
+        //   img.style.transition = "all 1s";
+        //   img.style.width = "41px";
+        //   img.style.width = "40px";
+        // }
+
+        
+    </script>
 <!-- Web Grid -->
 </body>
 </html>
