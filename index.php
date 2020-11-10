@@ -63,7 +63,7 @@
 <button onclick="alertCookie()">Show cookies</button>
 <button onclick="setCookie()">Save Time</button>
     <script>
-        function setCookie() 
+        function setCookie()  //To add: Make the save name an enterable name which saves the cookie different based on name (will save multiple cookies)
         {
             var d = new Date();
             var TimeSaved = new Date(); //Saves the current time
