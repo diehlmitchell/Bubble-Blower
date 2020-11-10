@@ -4,27 +4,37 @@
     grid-column: 1;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; /* 6 fractions for 6 power ups, could add more however this is the target as of creation */
     grid-template-columns: 1fr; /* 1 fr because further divs will seperate the interior columns */
+    height: 1005px;
+    overflow-y: auto;
+    /* background-image: ""; */
+    background-color: #fceeff;
 }
 
 .power-up{
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 20% 1fr 20%;
+    grid-template-columns: 30% 1fr;
     border: solid black 5px;
+    background-color: #fceeff;
+    cursor: pointer;
 }
 
 .power-up > img{
-    width: 80%;
+    width: 100%;
     height: 100%;    
     border-right: solid black 5px;
 }
-
+.power-up-text > p,
 .power-up > p{
     text-align: center;
     /* margin: left 20px; */
-    font-size: 40px;
-
+    font-size: 25px;
+    margin: 0px;
 }
 
+.power-up-text{
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 30% ;
+}
 
 
