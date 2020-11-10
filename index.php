@@ -29,9 +29,11 @@
 
                        
         <!-- Left Side -->
+
             <?php
                 include './View/power-ups.php';
             ?>
+
         <!-- Left Side -->
 
         <!-- Center  -->

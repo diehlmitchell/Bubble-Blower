@@ -10,7 +10,6 @@
         array("dirty-bubble.png","dirty-bubble image", "Dirty Bubble",0,900, 50),
         array("jugg-bubble.jpg","jugg-bubble image", "Bubble jugg",11,100000, 150)
     );  //end of the power ups array
-
 ?>
 
 <div class ="power-ups-grid">
@@ -18,18 +17,45 @@
         // $CurrentPrice;        
         for($X = 0; $X < count($powerUpsArray);$X++)
         {
-            $CurrentPrice = round($powerUpsArray[$X][4]*(1.15**$powerUpsArray[$X][3]));
             echo"
-                <div class = 'power-up'>
+                <div class = 'power-up' onclick='AddsCount($X)'> 
                     <img src='./View/Public/Images/Power-Ups/{$powerUpsArray[$X][0]}'>
-                    <div class ='power-up-text'>  
-                        <p>{$powerUpsArray[$X][2]}   <br> amount:{$powerUpsArray[$X][3]} <br> BPS:{$powerUpsArray[$X][5]} </p>     
-                        <p>Bubble Cost: $CurrentPrice</p>               
+                    <div class ='power-up-text' >  
+                        <p id='NameOutPut'>{$powerUpsArray[$X][2]}</p>
+                        <p id='AmountOutPut'>AOP</p>
+                        <p id='BPS-Output'> BPS:{$powerUpsArray[$X][5]}</p>     
+                        <p id='PriceOutPut'>POP</p>               
                     </div>
                 </div>
             ";
         }
     ?>
+
+    <script>                 
+            var ScriptArray =[  // array("amount","Cost","BPS") -- BPS = "Bubbles Per Second"
+            [0,10, 0.2],  
+            [0,40, .5],
+            [0,100, 1],  
+            [0,750, 3],
+            [0,3000, 15],
+            [0,10000, 50],
+            [0,50000, 150]
+            ];
+        // $powerUpsArray = $powerUpsArray+1;
+        function AddsCount(ScriptX) 
+        { 
+
+            ScriptArray[ScriptX][0]++;
+            document.getElementById('AmountOutPut').innerHTML = ScriptArray[ScriptX][0];
+                //hello there
+            CurrentPrice = ScriptArray[ScriptX][1]*(1.15**ScriptArray[ScriptX][1]);
+            document.getElementById('PriceOutPut').innerHTML = "POP:" + CurrentPrice;
+
+        } 
+    </script>
+        
+    
+
 
     <!-- <div onclick='addPower({$powerUpsArray[$X][3]})' class =  "power-up">
             <img src = "./Public/Images/Power-Ups/squid-bubble.jpg" alt="squid-bubble.jpg">
