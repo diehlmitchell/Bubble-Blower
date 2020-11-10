@@ -22,9 +22,9 @@
                     <img src='./View/Public/Images/Power-Ups/{$powerUpsArray[$X][0]}'>
                     <div class ='power-up-text' >  
                         <p id='NameOutPut'>{$powerUpsArray[$X][2]}</p>
-                        <p id='AmountOutPut'>AOP</p>
+                        <p id='AmountOutPut{$X}'>AOP</p>
                         <p id='BPS-Output'> BPS:{$powerUpsArray[$X][5]}</p>     
-                        <p id='PriceOutPut'>POP</p>               
+                        <p id='PriceOutPut{$X}'>POP:{$powerUpsArray[$X][4]}</p>               
                     </div>
                 </div>
             ";
@@ -34,7 +34,7 @@
     <script>                 
             var ScriptArray =[  // array("amount","Cost","BPS") -- BPS = "Bubbles Per Second"
             [0,10, 0.2],  
-            [0,40, .5],
+            [0,40, 0.5],
             [0,100, 1],  
             [0,750, 3],
             [0,3000, 15],
@@ -46,10 +46,11 @@
         { 
 
             ScriptArray[ScriptX][0]++;
-            document.getElementById('AmountOutPut').innerHTML = ScriptArray[ScriptX][0];
+            document.getElementById('AmountOutPut'+ScriptX).innerHTML = ScriptArray[ScriptX][0];
                 //hello there
-            CurrentPrice = ScriptArray[ScriptX][1]*(1.15**ScriptArray[ScriptX][1]);
-            document.getElementById('PriceOutPut').innerHTML = "POP:" + CurrentPrice;
+            CurrentPrice = Math.round(ScriptArray[ScriptX][1]+(.15*ScriptArray[ScriptX][1]));
+            ScriptArray[ScriptX][1] = CurrentPrice;
+            document.getElementById('PriceOutPut'+ScriptX).innerHTML = "POP:" + CurrentPrice;
 
         } 
     </script>
