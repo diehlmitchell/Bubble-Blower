@@ -39,26 +39,19 @@
         <!-- Center  -->
             <div class='bubble-pics' style='background-image: url(./View/Public/Images/Bubble.gif);'>
                 <h1>Bubble Blower</h1>
-                <img  id='bubble-size' class='bubble-png' src='./View/Public/Images/Bubble.png'>
+                <img onClick="Count()" class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
         <!-- Center  -->
-
-        <!-- Introduction -->
            
-        <!-- Introduction onClick='bubbleClicker()' -->
 
-        <!-- Class Scoreboard -->
-            <div class='scoreboard'>
-                <!-- Bubble Intro -->
-                <div class=''>
-                    
-                </div>
-                <!-- Bubble Intro -->
-            </div>
-        <!-- Class Scoreboard -->
-    </div>  
-</div>
+        <!-- Scoreboard (Right Side) -->
+            <div class='score-board-grid'>
 
+                <?php
+                    include './View/score-board.php';
+                ?>
+
+                <p onClick="myJsFunction()" id="input1">Bubble Blower <span id="output">0</span></p>
 <!-- This is where the broked code is -->
 <button onclick="alertCookie()">Show cookies</button>
 <button onclick="setCookie()">Save Time</button>
@@ -95,22 +88,25 @@
         //     img.classList.add("clickClass");
         // } 
 
-        // function myStopFunction() 
-        // {
-        //     clearInterval(myVar);
-        // }
+                    <!-- Trigger/Open The Modal
+                    <button id="myBtn">Open Modal</button>
 
-        // img = document.getElementById("bubble-size"); 
+                    <!-- The Modal -->
+                    <!-- <div id="myModal" class="modal"> -->
 
-        // function bubbleClicker()
-        // {
-        //   img.style.transition = "all 1s";
-        //   img.style.width = "41px";
-        //   img.style.width = "40px";
-        // }
+                    <!-- Modal content -->
+                        <!-- <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>Some text in the Modal..</p>
 
-        
-    </script>
+
+                        </div>
+                    </div> -->
+
+            </div> -->
+  
+        <!-- Scoreboard (Right Side) -->
+    </div>  
 <!-- Web Grid -->
 </body>
 </html>

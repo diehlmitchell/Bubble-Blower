@@ -33,17 +33,14 @@ html, body {
     left: 248px;
     height: auto;
     width: 429px;
-    cursor: auto;
-    border-radius: 128px;
+    cursor: pointer;
+    border-radius: 230px;
 }
 
-/* 
-.clickClass {
-    animation-name: click;
-    animation-duration: 1s;
-} */
+.bubble-png:hover {
+    width: 440px;
+}
 
-/* @keyframes click {
-    from {width: 400px;}
-    to {width: 200px;}
-  } */
+.bubble-png:active {
+    width: 429px;
+}
