@@ -7,7 +7,7 @@
         array("sponge-bubble.jpg","sponge-bubble image", "Sponge-bob",9,100, 1),
         array("hitman-bubble.jpg","hitman-bubble image", "Hitman",0,750, 3),
         array("suds-bob.jpg","suds-bob image", "Suds-Bob",0,3000, 15),
-        array("dirty-bubble.png","dirty-bubble image", "Dirty Bubble",0,900, 50),
+        array("dirty-bubble.png","dirty-bubble image", "Dirty Bubble",0,10000, 50),
         array("jugg-bubble.jpg","jugg-bubble image", "Bubble jugg",11,100000, 150)
     );  //end of the power ups array
 ?>

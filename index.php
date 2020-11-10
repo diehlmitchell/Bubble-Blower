@@ -52,9 +52,14 @@
                 ?>
 
                 <p onClick="myJsFunction()" id="input1">Bubble Blower <span id="output">0</span></p>
+                <button onclick="alertCookie()">Show cookies</button>
+                <button onclick="setCookie()">Save Time</button>
+                <button onclick="NewBubbles()">Calculate Difference</button>
+                <!-- <button onclick="getCookie()">get cookie</button> -->
+            </div>
+
 <!-- This is where the broked code is -->
-<button onclick="alertCookie()">Show cookies</button>
-<button onclick="setCookie()">Save Time</button>
+
     <script>
         function setCookie()  //To add: Make the save name an enterable name which saves the cookie different based on name (will save multiple cookies)
         {
@@ -63,21 +68,28 @@
             d.setTime(d.getTime() + (30*24*60*60*1000)); 
             var expires = "expires="+ d.toUTCString();//sets the expiration a month from current time
             document.cookie = " SaveTime=" + TimeSaved +"; " + expires + ";path=/";
+                       
+            
             //document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; // EXAMPLE COOKIE
         }
-            //the goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
+
+
+        //the goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
         function NewBubbles() 
         {
             var CurrentTime = new Date();
-
-
+            var TimeDif;
+            
+            TimeDif = CurrentTime.getTime() - TimeSaved.getTime();
+            alert(TimeDif);
         }
-            function alertCookie() 
-            {
-              alert(document.cookie);
-            }
 
+        function alertCookie() 
+        {
+          alert(document.cookie);
+        }
 
+       
     
         // var myVar = null;
         // img = document.getElementById("bubble-size"); 
@@ -87,7 +99,7 @@
         //     img.classList.remove("clickClass");
         //     img.classList.add("clickClass");
         // } 
-
+        </script>
                     <!-- Trigger/Open The Modal
                     <button id="myBtn">Open Modal</button>
 
