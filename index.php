@@ -39,53 +39,39 @@
         <!-- Center  -->
             <div class='bubble-pics' style='background-image: url(./View/Public/Images/Bubble.gif);'>
                 <h1>Bubble Blower</h1>
-                <img  id='bubble-size' class='bubble-png' src='./View/Public/Images/Bubble.png'>
+                <img onClick="Count()" class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
         <!-- Center  -->
-
-        <!-- Introduction -->
            
-        <!-- Introduction onClick='bubbleClicker()' -->
 
-        <!-- Class Scoreboard -->
-            <div class='scoreboard'>
-                <!-- Bubble Intro -->
-                <div class=''>
-                    
-                </div>
-                <!-- Bubble Intro -->
-            </div>
-        <!-- Class Scoreboard -->
+        <!-- Scoreboard (Right Side) -->
+            <div class='score-board-grid'>
+
+                <?php
+                    include './View/score-board.php';
+                ?>
+
+                <p onClick="myJsFunction()" id="input1">Bubble Blower <span id="output">0</span></p>
+
+                    <!-- Trigger/Open The Modal
+                    <button id="myBtn">Open Modal</button>
+
+                    <!-- The Modal -->
+                    <!-- <div id="myModal" class="modal"> -->
+
+                    <!-- Modal content -->
+                        <!-- <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>Some text in the Modal..</p>
+
+
+                        </div>
+                    </div> -->
+
+            </div> -->
+  
+        <!-- Scoreboard (Right Side) -->
     </div>  
-</div>
-
-    <script>
-
-        // var myVar = null;
-        // img = document.getElementById("bubble-size"); 
-
-        // function bubbleClicker()
-        // {
-        //     img.classList.remove("clickClass");
-        //     img.classList.add("clickClass");
-        // }
-
-        // function myStopFunction() 
-        // {
-        //     clearInterval(myVar);
-        // }
-
-        // img = document.getElementById("bubble-size"); 
-
-        // function bubbleClicker()
-        // {
-        //   img.style.transition = "all 1s";
-        //   img.style.width = "41px";
-        //   img.style.width = "40px";
-        // }
-
-        
-    </script>
 <!-- Web Grid -->
 </body>
 </html>
