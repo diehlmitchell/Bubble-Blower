@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- meta tags -->
 
-    <title>Document</title>
+    <title>Bubble Blower</title>
 
 </head>
 <body>
@@ -52,6 +52,41 @@
                 ?>
 
                 <p onClick="myJsFunction()" id="input1">Bubble Blower <span id="output">0</span></p>
+<!-- This is where the broked code is -->
+<button onclick="alertCookie()">Show cookies</button>
+<button onclick="setCookie()">Save Time</button>
+    <script>
+        function setCookie() 
+        {
+            var d = new Date();
+            var TimeSaved = new Date(); //Saves the current time
+            d.setTime(d.getTime() + (30*24*60*60*1000)); 
+            var expires = "expires="+ d.toUTCString();//sets the expiration a month from current time
+            document.cookie = " SaveTime=" + TimeSaved +"; " + expires + ";path=/";
+            //document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; // EXAMPLE COOKIE
+        }
+            //the goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
+        function NewBubbles() 
+        {
+            var CurrentTime = new Date();
+
+
+        }
+            function alertCookie() 
+            {
+              alert(document.cookie);
+            }
+
+
+    
+        // var myVar = null;
+        // img = document.getElementById("bubble-size"); 
+
+        // function bubbleClicker()
+        // {
+        //     img.classList.remove("clickClass");
+        //     img.classList.add("clickClass");
+        // } 
 
                     <!-- Trigger/Open The Modal
                     <button id="myBtn">Open Modal</button>
