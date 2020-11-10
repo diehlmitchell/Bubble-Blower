@@ -14,28 +14,33 @@
 ?>
 
 <div class ="power-ups-grid">
-    <?php 
+    <?php
+        // $CurrentPrice;
+        
         for($X = 0; $X < count($powerUpsArray);$X++)
         {
+            $CurrentPrice = round($powerUpsArray[$X][4]*(1.15**$powerUpsArray[$X][3]));
             echo"
                 <div class = 'power-up'>
                     <img src='./View/Public/Images/Power-Ups/{$powerUpsArray[$X][0]}'>
-                    <div class ='power-up-text'>  //onclick='addPower({$powerUpsArray[$X][3]})'
-                        <p>{$powerUpsArray[$X][2]}    amount:{$powerUpsArray[$X][3]}</p>
-                        <p>Bubble cost: (Cost)</p>
+                    <div class ='power-up-text'>  
+                        <p>{$powerUpsArray[$X][2]}    amount:{$powerUpsArray[$X][3]}</p>     
+                        <p>Bubble Cost: $CurrentPrice</p>     
+                        
+                        
                     </div>
                 </div>
             ";
         }
     ?>
 
-    <!-- <div class = "power-up">
+    <!-- <div onclick='addPower({$powerUpsArray[$X][3]})' class =  "power-up">
             <img src = "./Public/Images/Power-Ups/squid-bubble.jpg" alt="squid-bubble.jpg">
             <p> Squid Bubble</p>
             <p>0</p>
     </div> -->
-
-    <!-- Notes and idea; to save time or effort, switch case based on the $X that adds to the $powerUpsArray[$X][3]
+<!--CurrentPrice = BaseCost*(1.15**{$powerUpsArray[$X][3]}) -->
+    <!-- Notes and ideas; to save time or effort, switch case based on the $X that adds to the $powerUpsArray[$X][3]
      amount and subtracts cost from the current bubble amount
     (if theres enough bubbles), which would be "$powerUpsArray[$X][4] < score" 
     ---Must be in javascript because PHP will not communicate with the array after it started (or something like that idk)
