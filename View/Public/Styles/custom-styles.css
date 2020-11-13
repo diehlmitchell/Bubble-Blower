@@ -39,6 +39,19 @@ html, body {
 
 .bubble-png:hover {
     width: 440px;
+    animation: bounce 1s; 
+    animation-direction: alternate; 
+    animation-timing-function: cubic-bezier(.6, 0.06, 2, .6); 
+    animation-iteration-count: infinite; 
+}
+
+@keyframes bounce { 
+    from { 
+        transform: translate3d(0, 0, 0); 
+    } 
+    to{ 
+        transform: translate3d(0, 50px, 0); 
+    } 
 }
 
 .bubble-png:active {

@@ -38,7 +38,7 @@
 
         <!-- Center  -->
             <div class='bubble-pics' style='background-image: url(./View/Public/Images/Bubble.gif);'>
-                <h1>Bubble Blower</h1>
+                <h1 class="" id="change" data-toggle="modal" data-target="#myModal">Bubble Blower</h1>
                 <img onClick="Count()" class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
         <!-- Center  -->
@@ -52,10 +52,39 @@
                 ?>
 
                 <p onClick="myJsFunction()" id="input1">Bubble Blower <span id="output">0</span></p>
-<!-- This is where the broked code is -->
-<button onclick="alertCookie()">Show cookies</button>
-<button onclick="setCookie()">Save Time</button>
-    <script>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+  
+                        <!-- Modal content-->
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                                
+                            <div class="modal-body">
+                                <label for="name">What should your bubble blower name be?</label>
+                                <input type="text" id="name" name="name" value="">
+                                <button onClick="nameChanger()" class='btn btn-primary' data-dismiss="modal">Submit</button>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        <!-- Scoreboard (Right Side) -->
+
+        <!-- This is where the broked code is -->
+        <button onclick="alertCookie()">Show cookies</button>
+        <button onclick="setCookie()">Save Time</button>
+
+        <script>
         function setCookie() 
         {
             var d = new Date();
@@ -77,35 +106,14 @@
               alert(document.cookie);
             }
 
-
-    
-        // var myVar = null;
-        // img = document.getElementById("bubble-size"); 
-
-        // function bubbleClicker()
-        // {
-        //     img.classList.remove("clickClass");
-        //     img.classList.add("clickClass");
-        // } 
-
-                    <!-- Trigger/Open The Modal
-                    <button id="myBtn">Open Modal</button>
-
-                    <!-- The Modal -->
-                    <!-- <div id="myModal" class="modal"> -->
-
-                    <!-- Modal content -->
-                        <!-- <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p>Some text in the Modal..</p>
+        //Change name of 
+        function nameChanger() {
+            var x = document.getElementById("name").value;
+            document.getElementById("change").innerHTML = x;
+        }
+        </script>
 
 
-                        </div>
-                    </div> -->
-
-            </div> -->
-  
-        <!-- Scoreboard (Right Side) -->
     </div>  
 <!-- Web Grid -->
 </body>
