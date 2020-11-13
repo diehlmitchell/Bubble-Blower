@@ -55,20 +55,30 @@
                 <button onclick="alertCookie()">Show cookies</button>
                 <button onclick="setCookie()">Save Time</button>
                 <button onclick="NewBubbles()">Calculate Difference</button>
+                <button onclick="extractCookies()">daCookies</button>
+
                 <!-- <button onclick="getCookie()">get cookie</button> -->
             </div>
 
 <!-- This is where the broked code is -->
 
-    <script>
+    <script>var SaveNum = 0;
         function setCookie()  //To add: Make the save name an enterable name which saves the cookie different based on name (will save multiple cookies)
         {
+            
             var d = new Date();
             var TimeSaved = new Date(); //Saves the current time
             d.setTime(d.getTime() + (30*24*60*60*1000)); 
             var expires = "expires="+ d.toUTCString();//sets the expiration a month from current time
-            document.cookie = " SaveTime=" + TimeSaved +"; " + expires + ";path=/";
-                       
+            if (SaveNum == SaveNum)
+            {
+                document.cookie = "SaveTime"+SaveNum + "=" + TimeSaved +"; " + expires + ";path=/";
+                SaveNum += 1;
+                alert(SaveNum);
+
+            }
+            alert(document.cookie)
+                                  
             
             //document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; // EXAMPLE COOKIE
         }
@@ -79,16 +89,25 @@
         {
             var CurrentTime = new Date();
             var TimeDif;
+            var TimeSave = daCookies.SaveTime
             
-            TimeDif = CurrentTime.getTime() - TimeSaved.getTime();
+            TimeDif = CurrentTime.getTime() - TimeSave.getTime();
             alert(TimeDif);
         }
-
-        function alertCookie() 
+        // The goal of the function below is to split and store the cookies in an array
+        function extractCookies() 
         {
-          alert(document.cookie);
-        }
+            var daCookies = document.cookie
+            .split(";")
+            .map(cookie=> cookie.split("="))
+            .reduce((accumulator, [key,value]) =>
+            ({...accumulator, [key.trim()]: decodeURIComponent(value)}),
+            {});
 
+            alert(daCookies.SaveTime+SaveNum);
+            //after this you can retrieve cookies by name 
+        }
+            
        
     
         // var myVar = null;
