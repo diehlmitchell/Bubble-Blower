@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+ 
 
         <!-- Scoreboard (Right Side) -->
 
@@ -84,8 +84,8 @@
         <button onclick="alertCookie()">Show cookies</button>
         <button onclick="setCookie()">Save Time</button>
 
-        <script>
-        function setCookie() 
+        <!-- <script>
+        function setCookie()  -->
                 <button onclick="print_cookies()">Place Holder</button>
                 <button onclick="setCookie()">Save Time</button>
                 <button onclick="minusDates(daCookies)">Calculate Difference</button>
@@ -133,10 +133,7 @@
             var x = document.getElementById("name").value;
             document.getElementById("change").innerHTML = x;
         }
-        </script>
 
-<<<<<<< HEAD
-=======
         // The goal of the function below is to split and store the cookies in an array
         function extractCookies() 
         {
@@ -180,7 +177,6 @@
 
                         </div>
                     </div> -->
->>>>>>> 450d5d77c8b2873160488796cfd155d77426f4c9
 
     </div>  
 <!-- Web Grid -->
