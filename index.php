@@ -52,10 +52,10 @@
                 ?>
 
                 <p onClick="myJsFunction()" id="input1">Bubble Blower <span id="output">0</span></p>
-                <button onclick="alertCookie()">Show cookies</button>
+                <button onclick="print_cookies()">Place Holder</button>
                 <button onclick="setCookie()">Save Time</button>
-                <button onclick="NewBubbles()">Calculate Difference</button>
-                <button onclick="extractCookies()">daCookies</button>
+                <button onclick="minusDates(daCookies)">Calculate Difference</button>
+                <button onclick="extractCookies()">daCookies output</button>
 
                 <!-- <button onclick="getCookie()">get cookie</button> -->
             </div>
@@ -68,14 +68,14 @@
             
             var d = new Date();
             var TimeSaved = new Date(); //Saves the current time
-            d.setTime(d.getTime() + (30*24*60*60*1000)); 
+            d.setTime(d.getTime() + (30*24*60*60)); 
             var expires = "expires="+ d.toUTCString();//sets the expiration a month from current time
             if (SaveNum == SaveNum)
             {
                 document.cookie = "SaveTime"+SaveNum + "=" + TimeSaved +"; " + expires + ";path=/";
+                 //In the future we would want to take the name of the bubble blower instead of looping savenum (for multiple reasons)
                 SaveNum += 1;
                 alert(SaveNum);
-
             }
             alert(document.cookie)
                                   
@@ -83,33 +83,38 @@
             //document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; // EXAMPLE COOKIE
         }
 
-
         //the goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
-        function NewBubbles() 
-        {
-            var CurrentTime = new Date();
-            var TimeDif;
-            var TimeSave = daCookies.SaveTime
+        // function NewBubbles() 
+        // {
+        //     var CurrentTime = new Date();
+        //     var TimeDif;
+        //     var TimeSave = daCookies.SaveTime
             
-            TimeDif = CurrentTime.getTime() - TimeSave.getTime();
-            alert(TimeDif);
-        }
+        //     TimeDif = CurrentTime.getTime() - TimeSave.getTime();
+        //     alert(TimeDif);
+        // }
+
+
         // The goal of the function below is to split and store the cookies in an array
         function extractCookies() 
         {
-            var daCookies = document.cookie
+            daCookies = document.cookie
             .split(";")
-            .map(cookie=> cookie.split("="))
-            .reduce((accumulator, [key,value]) =>
-            ({...accumulator, [key.trim()]: decodeURIComponent(value)}),
-            {});
-
-            alert(daCookies.SaveTime+SaveNum);
-            //after this you can retrieve cookies by name 
+            .map(cookie=> cookie.split("="));
+            alert(daCookies);
+            // include "./Control/saves-table.php";
         }
             
-       
-    
+        function minusDates(daCookies)
+        {
+            var millis;
+            var c = new Date();
+            // var d  = new Date();
+            // millis = c.getTime() - d.getTime();
+            millis = c.getTime() - new Date(daCookies[1][1]).getTime();
+
+        	alert(millis/1000);
+        }
         // var myVar = null;
         // img = document.getElementById("bubble-size"); 
 
