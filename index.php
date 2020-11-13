@@ -105,14 +105,14 @@
             // include "./Control/saves-table.php";
         }
             
-        function minusDates(daCookies)
+        function minusDates(daCookies) // for operations you would want to change this to accept a name (like from a button)
         {
             var millis;
             var c = new Date();
             // var d  = new Date();
             // millis = c.getTime() - d.getTime();
+            
             millis = c.getTime() - new Date(daCookies[1][1]).getTime();
-
         	alert(millis/1000);
         }
         // var myVar = null;

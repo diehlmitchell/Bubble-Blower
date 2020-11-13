@@ -44,7 +44,6 @@
         // $powerUpsArray = $powerUpsArray+1;
         function AddsCount(ScriptX) 
         { 
-
             ScriptArray[ScriptX][0]++;
             document.getElementById('AmountOutPut'+ScriptX).innerHTML = ScriptArray[ScriptX][0];
                 //hello there
