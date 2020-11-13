@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href='./View/Public/Styles/custom-styles.css'>
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet"> 
 <!-- Links -->
 
 <!-- Scripts -->
@@ -38,7 +41,7 @@
 
         <!-- Center  -->
             <div class='bubble-pics' style='background-image: url(./View/Public/Images/Bubble.gif);'>
-                <h1 class="" id="change" data-toggle="modal" data-target="#myModal">Bubble Blower</h1>
+                <h1 class="change-name" id="change" data-toggle="modal" data-target="#myModal"><span class='hover-span'>Bubble Blower</span></h1>
                 <img onClick="Count()" class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
         <!-- Center  -->
@@ -61,17 +64,19 @@
                         <div class="modal-content">
 
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <button type="button" class="close" data-dismiss="modal" style='color: red;'>&times;</button>
                             </div>
                                 
                             <div class="modal-body">
                                 <label for="name">What should your bubble blower name be?</label>
                                 <input type="text" id="name" name="name" value="">
-                                <button onClick="nameChanger()" class='btn btn-primary' data-dismiss="modal">Submit</button>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn" data-dismiss="modal">Close</button>
+                                <button onClick="nameChanger()" class='btn btn-primary' data-dismiss="modal" 
+                                style='background-color: white; color: black;'>Enter</button>
+
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
