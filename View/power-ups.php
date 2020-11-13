@@ -42,9 +42,9 @@
             [0,50000, 150]
             ];
         // $powerUpsArray = $powerUpsArray+1;
-        function AddsCount(ScriptX, i) 
+        function AddsCount(ScriptX,i ) 
         { 
-            if(getElementById('Output').value > (ScriptArray[ScriptX][1]))
+            if(i > (ScriptArray[ScriptX][1]))
             {
                 ScriptArray[ScriptX][0]++;
                 document.getElementById('AmountOutPut'+ScriptX).innerHTML = ScriptArray[ScriptX][0];
@@ -57,10 +57,7 @@
 
         } 
     </script>
-        
     
-
-
     <!-- <div onclick='addPower({$powerUpsArray[$X][3]})' class =  "power-up">
             <img src = "./Public/Images/Power-Ups/squid-bubble.jpg" alt="squid-bubble.jpg">
             <p> Squid Bubble</p>
