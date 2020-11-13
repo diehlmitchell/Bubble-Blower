@@ -86,8 +86,8 @@
         <!-- Scoreboard (Right Side) -->
 
         <!-- This is where the broked code is -->
-        <button onclick="alertCookie()">Show cookies</button>
-        <button onclick="setCookie()">Save Time</button>
+        <!-- <button onclick="alertCookie()">Show cookies</button>
+        <button onclick="setCookie()">Save Time</button> -->
 
         <!-- <script>
         function setCookie()  -->
