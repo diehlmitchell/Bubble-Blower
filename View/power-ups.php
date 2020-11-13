@@ -42,14 +42,18 @@
             [0,50000, 150]
             ];
         // $powerUpsArray = $powerUpsArray+1;
-        function AddsCount(ScriptX) 
+        function AddsCount(ScriptX, i) 
         { 
-            ScriptArray[ScriptX][0]++;
-            document.getElementById('AmountOutPut'+ScriptX).innerHTML = ScriptArray[ScriptX][0];
-                //hello there
-            CurrentPrice = Math.round(ScriptArray[ScriptX][1]+(.15*ScriptArray[ScriptX][1]));
-            ScriptArray[ScriptX][1] = CurrentPrice;
-            document.getElementById('PriceOutPut'+ScriptX).innerHTML = "POP:" + CurrentPrice;
+            if(getElementById('Output').value > (ScriptArray[ScriptX][1]))
+            {
+                ScriptArray[ScriptX][0]++;
+                document.getElementById('AmountOutPut'+ScriptX).innerHTML = ScriptArray[ScriptX][0];
+                    //hello there
+                CurrentPrice = Math.round(ScriptArray[ScriptX][1]+(.15*ScriptArray[ScriptX][1]));
+                ScriptArray[ScriptX][1] = CurrentPrice;
+                document.getElementById('PriceOutPut'+ScriptX).innerHTML = "POP:" + CurrentPrice;
+
+            }
 
         } 
     </script>
