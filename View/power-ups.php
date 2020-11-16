@@ -42,9 +42,9 @@
             [0,50000, 150]
             ];
         // $powerUpsArray = $powerUpsArray+1;
-        function AddsCount(ScriptX,i ) 
+        function AddsCount(ScriptX,i) 
         { 
-            if(i > (ScriptArray[ScriptX][1]))
+            if(i <= ScriptArray[ScriptX][1])
             {
                 ScriptArray[ScriptX][0]++;
                 document.getElementById('AmountOutPut'+ScriptX).innerHTML = ScriptArray[ScriptX][0];
@@ -52,7 +52,6 @@
                 CurrentPrice = Math.round(ScriptArray[ScriptX][1]+(.15*ScriptArray[ScriptX][1]));
                 ScriptArray[ScriptX][1] = CurrentPrice;
                 document.getElementById('PriceOutPut'+ScriptX).innerHTML = "POP:" + CurrentPrice;
-
             }
 
         } 

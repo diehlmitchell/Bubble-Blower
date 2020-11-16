@@ -2,17 +2,14 @@
 
     <script>
 
-         i = 0
+         i = 0;
 
         function Count() {
             document.getElementById("output").innerHTML = i++ + 1;
         }
-
-        
         
         function myJsFunction(){
-
-        var text = document.getElementById('input1').value;
+          var text = document.getElementById('input1').value;
 
         }
 
