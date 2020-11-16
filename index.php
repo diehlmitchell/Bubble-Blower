@@ -100,10 +100,9 @@
 
 <!-- This is where the broked code is -->
 
-    <script>var SaveNum = 0;
+    <script>var SaveNum = 0;//TEMP, WILL CHANGE TO A DIFFERENT SAVE NAME SCHEME LATER
         function setCookie()  //To add: Make the save name an enterable name which saves the cookie different based on name (will save multiple cookies)
         {
-            
             var d = new Date();
             var TimeSaved = new Date(); //Saves the current time
             d.setTime(d.getTime() + (30*24*60*60)); 
@@ -154,9 +153,8 @@
             var c = new Date();
             // var d  = new Date();
             // millis = c.getTime() - d.getTime();
-            
-            millis = c.getTime() - new Date(daCookies[1][1]).getTime();
-        	alert(millis/1000);
+            millis = c.getTime() - new Date(daCookies[1][1]).getTime();//NEEDS TO BE CHANGED DIFFERENTLY TO USE OTHER COOKIES
+        	alert(millis/1000);//DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
         }
         // var myVar = null;
         // img = document.getElementById("bubble-size"); 
