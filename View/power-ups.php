@@ -42,16 +42,27 @@
             [0,50000, 150]
             ];
         // $powerUpsArray = $powerUpsArray+1;
-        function AddsCount(ScriptX,i) 
+        function AddsCount(ScriptX, i ) 
         { 
-            if(i <= ScriptArray[ScriptX][1])
+            var CurrentPrice = ScriptArray[ScriptX][1];     
+            //DOESNT WORK AM I AM STOPID? ! I DUNT KKONWO 
+            //the problem: the loop is never ran on click
+            //possible solutions/causes: 
+        //1   // It is very possible that the scope of some variables or values are not visible to this function so it cannot run or do math without those vars
+        //2   // it is unlikely that the more expensive cards are writing their boxes overtop the cheaper options, so it cant be run
+        //3   //it is somewhat likely that the function and if statement are running correctly,
+              // however the scriptX is the largest power up number and therefore too expensive
+
+            if(i <= document.getElementById('input1').value)
             {
                 ScriptArray[ScriptX][0]++;
+                i = i-CurrentPrice
                 document.getElementById('AmountOutPut'+ScriptX).innerHTML = ScriptArray[ScriptX][0];
                     //hello there
                 CurrentPrice = Math.round(ScriptArray[ScriptX][1]+(.15*ScriptArray[ScriptX][1]));
                 ScriptArray[ScriptX][1] = CurrentPrice;
                 document.getElementById('PriceOutPut'+ScriptX).innerHTML = "POP:" + CurrentPrice;
+                
             }
 
         } 
