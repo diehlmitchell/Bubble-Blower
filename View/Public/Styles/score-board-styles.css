@@ -2,10 +2,31 @@
     display: grid;
     grid-row: 1;
     grid-column: 3;
-    grid-template-rows: auto; /* 6 fractions for 6 power ups, could add more however this is the target as of creation */
+    grid-template-rows: 20%;
     grid-template-columns: auto;
     height: 1005px;
     /* overflow-y: auto; */
     background-color: #fceeff;
     border: solid black 5px;
+}
+
+#input1{
+    font-family: 'Concert One', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 76px 32px;
+    border-radius: 41px;
+    color: #000000c4;
+    background-color: rgba(15, 15, 15, 0.36);
+}
+
+.pencil {
+    width: 5%;
+    height: auto;
+    position: relative;
+    left: 15px;
+    bottom: 5px;
 }

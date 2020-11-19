@@ -41,7 +41,7 @@
 
         <!-- Center  -->
             <div class='bubble-pics' style='background-image: url(./View/Public/Images/Bubble.gif);'>
-                <h1 class="change-name" id="change" data-toggle="modal" data-target="#myModal"><span class='hover-span'>Bubble Blower</span></h1>
+                <h1 class="change-name" data-toggle="modal" data-target="#myModal"><span class='hover-span' id="change">Bubble Blower</span><img src='./View/Public/Images/pencil.png' class="pencil"></h1>
                 <img onClick="Count()" class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
         <!-- Center  -->
@@ -54,7 +54,7 @@
                     include './View/score-board.php';
                 ?>
 
-                <p onClick="myJsFunction()" id="input1">Bubble Blower <span id="output">0</span></p>
+                <p onClick="myJsFunction()" id="input1">Bubble Blower Score: <span id="output"> 0</span></p>
 
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
@@ -136,7 +136,11 @@
         //Change name of 
         function nameChanger() {
             var x = document.getElementById("name").value;
-            document.getElementById("change").innerHTML = x;
+            
+            if(x != "")
+            {
+                document.getElementById("change").innerHTML = x;
+            }
         }
 
         // The goal of the function below is to split and store the cookies in an array
