@@ -66,8 +66,8 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" style='color: red;'>&times;</button>
                             </div>
-                                
-                            <div class="modal-body">
+                                <!-- This is later referanced by the function nameChanger() -->
+                            <div class="modal-body"> 
                                 <label for="name">What should your bubble blower name be?</label>
                                 <input type="text" id="name" name="name" value="">
                             </div>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
- 
+
 
         <!-- Scoreboard (Right Side) -->
 
@@ -101,22 +101,31 @@
 
 <!-- This is where the broked code is -->
 
-    <script>var SaveNum = 0;
+    <script>
+        var SaveNum = 0;//TEMPorary, WILL CHANGE TO A DIFFERENT SAVE NAME SCHEME LATER
         function setCookie()  //To add: Make the save name an enterable name which saves the cookie different based on name (will save multiple cookies)
         {
-            
             var d = new Date();
             var TimeSaved = new Date(); //Saves the current time
-            d.setTime(d.getTime() + (30*24*60*60)); 
+            d.setTime(d.getTime() + (30*24*60*60)); //sets the expiration a month from current time
             var expires = "expires="+ d.toUTCString();//sets the expiration a month from current time
             if (SaveNum == SaveNum)
-            {
-                document.cookie = "SaveTime"+SaveNum + "=" + TimeSaved +"; " + expires + ";path=/";
-                 //In the future we would want to take the name of the bubble blower instead of looping savenum (for multiple reasons)
+            {   // &%&%& seperates the values of the array for the javascript cookie
+                // The array should go  ( Saveame(savenum) = ( Timesaved,Score,Bubbles Per Second Total, PowerUp amonut 1, PowerUp amount 2..... etc. ))
+                document.cookie =
+                "SaveTime"+SaveNum + "=" + //Cookie Name       . intScore may already be represented as "i" on score-board.php
+                TimeSaved + &%&%& + intScore + &%&%& + floatBPS + &%&%& +
+                puAmount1 + &%&%& + puAmount2 + &%&%& + puAmount3 + &%&%& + puAmount4 + &%&%& + puAmount5 + &%&%& + puAmount6 + &%&%& + puAmount7 + "; "
+                + expires + ";path=/";
+                      
+                    // in the future I solemly swear to never do this again LOL
+                  //Note to me later, no dont copy this, just use php cookies
+                //In the future we would want to take the name of the bubble blower instead of looping savenum (for multiple reasons possibly)
+                // you can possibly find the savename or bubble name lower in this document in the function nameChanger() as variable x
                 SaveNum += 1;
-                alert(SaveNum);
+                alert(SaveNum); //TEMPORARY SO I CAN SEE THE LOOP RUNNING CORRECTLY AND THAT IT MAKES THE NUMBER GO UP 
             }
-            alert(document.cookie)
+            alert(document.cookie) //displays all java cookies
                                   
             
             //document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; // EXAMPLE COOKIE
@@ -159,9 +168,8 @@
             var c = new Date();
             // var d  = new Date();
             // millis = c.getTime() - d.getTime();
-            
-            millis = c.getTime() - new Date(daCookies[1][1]).getTime();
-        	alert(millis/1000);
+            millis = c.getTime() - new Date(daCookies[1][1]).getTime();//NEEDS TO BE CHANGED DIFFERENTLY TO USE OTHER COOKIES DYNAMICALLY 
+        	alert(millis/1000);//DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
         }
         // var myVar = null;
         // img = document.getElementById("bubble-size"); 

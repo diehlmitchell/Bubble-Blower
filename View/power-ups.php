@@ -42,17 +42,27 @@
             [0,50000, 150]
             ];
         // $powerUpsArray = $powerUpsArray+1;
-        function AddsCount(ScriptX,i ) 
+        function AddsCount(X) 
         { 
-            if(i > (ScriptArray[ScriptX][1]))
-            {
-                ScriptArray[ScriptX][0]++;
-                document.getElementById('AmountOutPut'+ScriptX).innerHTML = ScriptArray[ScriptX][0];
-                    //hello there
-                CurrentPrice = Math.round(ScriptArray[ScriptX][1]+(.15*ScriptArray[ScriptX][1]));
-                ScriptArray[ScriptX][1] = CurrentPrice;
-                document.getElementById('PriceOutPut'+ScriptX).innerHTML = "POP:" + CurrentPrice;
+            var CurrentPrice = ScriptArray[X][1];     
+            //DOESNT WORK AM I AM STOPID? ! I DUNT KKONWO 
+            //the problem: the loop is never ran on click/ or more precisely the loop does not have an effect when the onclick is ran
+            //possible solutions/causes: 
+        //1   // It is very possible that the scope of some variables or values are not visible to this function so it cannot run or do math without those vars
+        //2   // it is unlikely that the more expensive cards are writing their boxes overtop the cheaper options, so it cant be run
+        //3   //it is somewhat likely that the function and if statement are running correctly,
+              // however the scriptX is the largest power up number and therefore too expensive
 
+            if(CurrentPrice <= i)
+            {
+                ScriptArray[X][0]++;
+                i = i-CurrentPrice; //I is the amount of score you currently have, problem would be trying to get that variable seen from the current scope
+                document.getElementById('AmountOutPut'+X).innerHTML = ScriptArray[X][0];
+                    //hello there
+                CurrentPrice = Math.round(ScriptArray[X][1]+(.15*ScriptArray[X][1]));
+                ScriptArray[X][1] = CurrentPrice;
+                document.getElementById('PriceOutPut'+X).innerHTML = "POP:" + CurrentPrice;
+                document.getElementById('output').innerHTML = i;
             }
 
         } 
