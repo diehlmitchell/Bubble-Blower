@@ -45,10 +45,10 @@
             [0,10000, 50],
             [0,50000, 150]
             ];
+            floatBPS = 0;
         // $powerUpsArray = $powerUpsArray+1;
         function AddsCount(X) 
         { 
-            floatBPS = 0;
             var CurrentPrice = ScriptArray[X][1];     
             //DOESNT WORK AM I AM STOPID? ! I DUNT KKONWO 
             //the problem: the loop is never ran on click/ or more precisely the function does not have an effect when the onclick is ran
@@ -61,14 +61,14 @@
             if(CurrentPrice <= i)
             {
                 ScriptArray[X][0]++; //amount
-
+                
                 //just stored the script array value there so no need for this
                 // ("puAmount" + (X+1)) = ScriptArray[X][0]; //in order for the cookie to work I need to make the puAmount variable and incriment it
                 // console.log(puAmount1); 
                 //just stored the script array value there so no need for this
 
                 floatBPS += ScriptArray[X][2]; //references the script arrays last value which is labeled bubbles per second above
-
+                // console.log(floatBPS)
 
                 i = i-CurrentPrice; //i is the amount of score you currently have, problem would be trying to get that variable seen from the current scope
                 document.getElementById('AmountOutPut'+X).innerHTML = ScriptArray[X][0];

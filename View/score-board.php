@@ -8,6 +8,10 @@
             document.getElementById("output").innerHTML = i++ + 1;
         }
         
+        function displayNoCount() {
+            document.getElementById("output").innerHTML = i;
+        }
+
         function myJsFunction(){
           var text = document.getElementById('input1').value;
 

@@ -147,9 +147,8 @@
         function nameChanger() {
             var nameChangeVariable = document.getElementById("name").value;
 
-            //Note for antonio from mitchell - Since I already have X index variable I changed your x variable to "nameChangeVariable"
-            //to minimize confusion
-            
+            //Note for antonio from mitchell - Since I already have X index variable I changed your x variable to "nameChangeVariable" to minimize confusion
+    
             if(nameChangeVariable != "")
             {
                 document.getElementById("change").innerHTML = nameChangeVariable;
@@ -184,9 +183,37 @@
                 //keep the leftover/remainders if any, and add them back to/keep in floatAddedBubbles so the player does not loose any score
             // important to note:
         // scorePerSecond Function Goal
+        IntAddedBubbles = 0; //the variable that SHOULD be displayed back to the score
+        floatAddedBubbles = 0; // floatAddedBubbles should NOT be the displayed variable
+        funcRunning ='f';
+        if(funcRunning == 'f')
+        {
+            setInterval(scorePerSecond, 1000); //runs in milliseconds
+        }
         function scorePerSecond() //you dont need to add anything in here to run it every second because setInterval(function, 1000ms) runs it where it lies
         {
-            
+            funcRunning = 't'
+            floatAddedBubbles += floatBPS;
+            console.log(floatAddedBubbles+ " FAB1");
+
+            if(floatAddedBubbles >= 1)
+            {
+                IntAddedBubbles = Math.round(floatAddedBubbles);  //change this later as this could lag this site on higher bubbles per second
+                i += IntAddedBubbles;
+                floatAddedBubbles = floatAddedBubbles-IntAddedBubbles; 
+
+                console.log(floatBPS + "BPS")
+                console.log(IntAddedBubbles +"IAB")
+                console.log(floatAddedBubbles+ "FAB2")
+                console.log(i+ "score") //the score is changing, however it is NOT updating its value on the page
+                displayNoCount()
+                funcRunning ='f';
+            }
+            else
+            {
+                funcRunning ='f';
+            }
+
         }
 
 
