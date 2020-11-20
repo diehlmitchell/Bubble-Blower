@@ -17,6 +17,8 @@
         // $CurrentPrice;        
         for($X = 0; $X < count($powerUpsArray);$X++)
         {
+
+            // THE CODE BELOWS GOAL AND ONLY PURPOSE TO DISPLAY POWER UPS ON THE PAGE
             echo"
                 <div class = 'power-up' onclick='AddsCount($X)'> 
                     <img src='./View/Public/Images/Power-Ups/{$powerUpsArray[$X][0]}'>
@@ -28,6 +30,8 @@
                     </div>
                 </div>
             ";
+            // THE CODE ABOVE GOAL AND ONLY PURPOSE TO DISPLAY POWER UPS ON THE PAGE
+
         }
     ?>
 
@@ -44,19 +48,29 @@
         // $powerUpsArray = $powerUpsArray+1;
         function AddsCount(X) 
         { 
+            floatBPS = 0;
             var CurrentPrice = ScriptArray[X][1];     
             //DOESNT WORK AM I AM STOPID? ! I DUNT KKONWO 
-            //the problem: the loop is never ran on click/ or more precisely the loop does not have an effect when the onclick is ran
+            //the problem: the loop is never ran on click/ or more precisely the function does not have an effect when the onclick is ran
             //possible solutions/causes: 
         //1   // It is very possible that the scope of some variables or values are not visible to this function so it cannot run or do math without those vars
         //2   // it is unlikely that the more expensive cards are writing their boxes overtop the cheaper options, so it cant be run
-        //3   //it is somewhat likely that the function and if statement are running correctly,
-              // however the scriptX is the largest power up number and therefore too expensive
+        //3   //it is somewhat likely that the function and if statement are running correctly, but theres a logic error and i placed comparable operators wrong
+              // or the scriptX is the largest power up number and therefore too expensive
 
             if(CurrentPrice <= i)
             {
-                ScriptArray[X][0]++;
-                i = i-CurrentPrice; //I is the amount of score you currently have, problem would be trying to get that variable seen from the current scope
+                ScriptArray[X][0]++; //amount
+
+                //just stored the script array value there so no need for this
+                // ("puAmount" + (X+1)) = ScriptArray[X][0]; //in order for the cookie to work I need to make the puAmount variable and incriment it
+                // console.log(puAmount1); 
+                //just stored the script array value there so no need for this
+
+                floatBPS += ScriptArray[X][2]; //references the script arrays last value which is labeled bubbles per second above
+
+
+                i = i-CurrentPrice; //i is the amount of score you currently have, problem would be trying to get that variable seen from the current scope
                 document.getElementById('AmountOutPut'+X).innerHTML = ScriptArray[X][0];
                     //hello there
                 CurrentPrice = Math.round(ScriptArray[X][1]+(.15*ScriptArray[X][1]));

@@ -114,8 +114,9 @@
                 // The array should go  ( Saveame(savenum) = ( Timesaved,Score,Bubbles Per Second Total, PowerUp amonut 1, PowerUp amount 2..... etc. ))
                 document.cookie =
                 "SaveTime"+SaveNum + "=" + //Cookie Name       . intScore may already be represented as "i" on score-board.php
-                TimeSaved + &%&%& + intScore + &%&%& + floatBPS + &%&%& +
-                puAmount1 + &%&%& + puAmount2 + &%&%& + puAmount3 + &%&%& + puAmount4 + &%&%& + puAmount5 + &%&%& + puAmount6 + &%&%& + puAmount7 + "; "
+                TimeSaved + "&%&%&" + i + "&%&%&" + floatBPS + "&%&%&" +  //STILL NEED TO STORE BUBBLES PER SECOND
+                // puAmount1 + "&%&%&" + puAmount2 + "&%&%&" + puAmount3 + "&%&%&" + puAmount4 + "&%&%&" + puAmount5 + "&%&%&" + puAmount6 + "&%&%&" + puAmount7 +
+                ScriptArray[0][0] + "&%&%&" + ScriptArray[1][0] + "&%&%&" + ScriptArray[2][0] + "&%&%&" + ScriptArray[3][0] + "&%&%&" + ScriptArray[4][0] + "&%&%&" + ScriptArray[5][0] + "&%&%&" + ScriptArray[6][0] + "; "
                 + expires + ";path=/";
                       
                     // in the future I solemly swear to never do this again LOL
@@ -144,11 +145,14 @@
 
         //Change name of 
         function nameChanger() {
-            var x = document.getElementById("name").value;
+            var nameChangeVariable = document.getElementById("name").value;
+
+            //Note for antonio from mitchell - Since I already have X index variable I changed your x variable to "nameChangeVariable"
+            //to minimize confusion
             
-            if(x != "")
+            if(nameChangeVariable != "")
             {
-                document.getElementById("change").innerHTML = x;
+                document.getElementById("change").innerHTML = nameChangeVariable;
             }
         }
 
@@ -171,6 +175,23 @@
             millis = c.getTime() - new Date(daCookies[1][1]).getTime();//NEEDS TO BE CHANGED DIFFERENTLY TO USE OTHER COOKIES DYNAMICALLY 
         	alert(millis/1000);//DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
         }
+
+        // scorePerSecond Function Goal
+            // use a setInterval(function, 1000ms) to run the function every second and add floatBPS to score
+            // important to note:
+                // do not want "i" (score), to ever be non int
+                // only add to score once the floatAddedBubbles value is over 0
+                //keep the leftover/remainders if any, and add them back to/keep in floatAddedBubbles so the player does not loose any score
+            // important to note:
+        // scorePerSecond Function Goal
+        function scorePerSecond() //you dont need to add anything in here to run it every second because setInterval(function, 1000ms) runs it where it lies
+        {
+            
+        }
+
+
+
+
         // var myVar = null;
         // img = document.getElementById("bubble-size"); 
 
