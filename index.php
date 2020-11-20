@@ -114,8 +114,7 @@
                 // The array should go  ( Saveame(savenum) = ( Timesaved,Score,Bubbles Per Second Total, PowerUp amonut 1, PowerUp amount 2..... etc. ))
                 document.cookie =
                 "SaveTime"+SaveNum + "=" + //Cookie Name       . intScore may already be represented as "i" on score-board.php
-                TimeSaved + "&%&%&" + i + "&%&%&" + floatBPS + "&%&%&" +  //STILL NEED TO STORE BUBBLES PER SECOND
-                // puAmount1 + "&%&%&" + puAmount2 + "&%&%&" + puAmount3 + "&%&%&" + puAmount4 + "&%&%&" + puAmount5 + "&%&%&" + puAmount6 + "&%&%&" + puAmount7 +
+                TimeSaved + "&%&%&" + i + "&%&%&" + floatBPS + "&%&%&" +
                 ScriptArray[0][0] + "&%&%&" + ScriptArray[1][0] + "&%&%&" + ScriptArray[2][0] + "&%&%&" + ScriptArray[3][0] + "&%&%&" + ScriptArray[4][0] + "&%&%&" + ScriptArray[5][0] + "&%&%&" + ScriptArray[6][0] + "; "
                 + expires + ";path=/";
                       
@@ -159,7 +158,7 @@
         function extractCookies() 
         {
             daCookies = document.cookie
-            .split(";")
+            .split(";","&%&%&")
             .map(cookie=> cookie.split("="));
             alert(daCookies);
             // include "./Control/saves-table.php";
@@ -185,16 +184,16 @@
         // scorePerSecond Function Goal
         IntAddedBubbles = 0; //the variable that SHOULD be displayed back to the score
         floatAddedBubbles = 0; // floatAddedBubbles should NOT be the displayed variable
-        funcRunning ='f';
+        funcRunning ='f'; //this makes sure the function isnt ran while its already running therefore preventing score loss or other bugs
         if(funcRunning == 'f')
         {
-            setInterval(scorePerSecond, 1000); //runs in milliseconds
+            setInterval(scorePerSecond, 1); //runs in milliseconds
         }
         function scorePerSecond() //you dont need to add anything in here to run it every second because setInterval(function, 1000ms) runs it where it lies
         {
             funcRunning = 't'
             floatAddedBubbles += floatBPS;
-            console.log(floatAddedBubbles+ " FAB1");
+            // console.log(floatAddedBubbles+ " FAB1");
 
             if(floatAddedBubbles >= 1)
             {
@@ -202,10 +201,10 @@
                 i += IntAddedBubbles;
                 floatAddedBubbles = floatAddedBubbles-IntAddedBubbles; 
 
-                console.log(floatBPS + "BPS")
-                console.log(IntAddedBubbles +"IAB")
-                console.log(floatAddedBubbles+ "FAB2")
-                console.log(i+ "score") //the score is changing, however it is NOT updating its value on the page
+                // console.log(floatBPS + "BPS")
+                // console.log(IntAddedBubbles +"IAB")
+                // console.log(floatAddedBubbles+ "FAB2")
+                // console.log(i+ "score") //the score is changing, however it is NOT updating its value on the page
                 displayNoCount()
                 funcRunning ='f';
             }
