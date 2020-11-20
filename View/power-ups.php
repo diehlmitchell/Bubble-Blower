@@ -37,7 +37,7 @@
 
     <script>                 
             var ScriptArray =[  // array("amount","Cost","BPS") -- BPS = "Bubbles Per Second"
-            [0,10, 0.2],  
+            [0,10, 0.25],  
             [0,40, 0.5],
             [0,100, 1],  
             [0,750, 3],

@@ -1,3 +1,8 @@
+<?php
+    // session_destroy();
+    //if you start a session in the same browser (like the Fortisuremart sessions) then it will store a session in the cookie. this destroys it
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +59,7 @@
                     include './View/score-board.php';
                 ?>
 
-                <p onClick="myJsFunction()" id="input1">Bubble Blower Score: <span id="output"> 0</span></p>
+                <p onClick="myJsFunction()" id="input1">Bubbles Blown: <span id="output"> 0</span></p>
 
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
@@ -69,7 +74,7 @@
                                 <!-- This is later referanced by the function nameChanger() -->
                             <div class="modal-body"> 
                                 <label for="name">What should your bubble blower name be?</label>
-                                <input type="text" id="name" name="name" value="">
+                                <input type="text" id="name" name="name" value="Bubble Blower">
                             </div>
 
                             <div class="modal-footer">
@@ -103,6 +108,7 @@
 
     <script>
         var SaveNum = 0;//TEMPorary, WILL CHANGE TO A DIFFERENT SAVE NAME SCHEME LATER
+     
         function setCookie()  //To add: Make the save name an enterable name which saves the cookie different based on name (will save multiple cookies)
         {
             var d = new Date();
@@ -113,17 +119,32 @@
             {   // &%&%& seperates the values of the array for the javascript cookie
                 // The array should go  ( Saveame(savenum) = ( Timesaved,Score,Bubbles Per Second Total, PowerUp amonut 1, PowerUp amount 2..... etc. ))
                 document.cookie =
-                "SaveTime"+SaveNum + "=" + //Cookie Name       . intScore may already be represented as "i" on score-board.php
-                TimeSaved + "&%&%&" + i + "&%&%&" + floatBPS + "&%&%&" +
-                ScriptArray[0][0] + "&%&%&" + ScriptArray[1][0] + "&%&%&" + ScriptArray[2][0] + "&%&%&" + ScriptArray[3][0] + "&%&%&" + ScriptArray[4][0] + "&%&%&" + ScriptArray[5][0] + "&%&%&" + ScriptArray[6][0] + "; "
-                + expires + ";path=/";
+                // document.getElementById("name").value + "=" +  //Cookie Name       . intScore may already be represented as "i" on score-board.php
+                // TimeSaved + "&%&%&" + i + "&%&%&" + floatBPS + "&%&%&" +
+                // ScriptArray[0][0] + "&%&%&" + ScriptArray[1][0] + "&%&%&" + ScriptArray[2][0] + "&%&%&" + ScriptArray[3][0] + "&%&%&" + ScriptArray[4][0] + "&%&%&" + ScriptArray[5][0] + "&%&%&" + ScriptArray[6][0] + "; "
+                // + expires + ";path=/";
+
+
+                    document.getElementById("name").value + "=" +  //Cookie Name       . intScore may already be represented as "i" on score-board.php
+                    TimeSaved + "&%&%&" + i + "&%&%&" + floatBPS + "&%&%&" +
+                    ScriptArray[0][0] + "&%&%&" + ScriptArray[1][0] + "&%&%&" + ScriptArray[2][0] + "&%&%&" +
+                    ScriptArray[3][0] + "&%&%&" + ScriptArray[4][0] + "&%&%&" + ScriptArray[5][0] + "&%&%&" + ScriptArray[6][0] + "; "
+                    + expires + ";path=/";
+
+
+
+
+
+
+
+
                       
                     // in the future I solemly swear to never do this again LOL
                   //Note to me later, no dont copy this, just use php cookies
                 //In the future we would want to take the name of the bubble blower instead of looping savenum (for multiple reasons possibly)
                 // you can possibly find the savename or bubble name lower in this document in the function nameChanger() as variable x
-                SaveNum += 1;
-                alert(SaveNum); //TEMPORARY SO I CAN SEE THE LOOP RUNNING CORRECTLY AND THAT IT MAKES THE NUMBER GO UP 
+                // SaveNum += 1;
+                // alert(SaveNum); //TEMPORARY SO I CAN SEE THE LOOP RUNNING CORRECTLY AND THAT IT MAKES THE NUMBER GO UP 
             }
             alert(document.cookie) //displays all java cookies
                                   
@@ -141,10 +162,10 @@
         //     TimeDif = CurrentTime.getTime() - TimeSave.getTime();
         //     alert(TimeDif);
         // }
-
+        var nameChangeVariable = document.getElementById("name").value;
         //Change name of 
         function nameChanger() {
-            var nameChangeVariable = document.getElementById("name").value;
+            nameChangeVariable = document.getElementById("name").value;
 
             //Note for antonio from mitchell - Since I already have X index variable I changed your x variable to "nameChangeVariable" to minimize confusion
     
@@ -157,20 +178,49 @@
         // The goal of the function below is to split and store the cookies in an array
         function extractCookies() 
         {
-            daCookies = document.cookie
-            .split(";","&%&%&")
+            // daCookies0 = document.cookie
+            // .split(";")
+
+            daCookies = document.cookie //then split the dacookies[1]
+            .split("&%&%&")
             .map(cookie=> cookie.split("="));
-            alert(daCookies);
+
+            // var FullDacookies;
+            // var arrayNum1 = 0;
+            // var arrayNum2 = 1;
+            // for(index = 0; index <=daCookies.length; index++)
+            // {
+            //     FullDacookies = daCookies[arrayNum1].concat(daCookies[arrayNum2]);
+            //     if(index <=9 && )
+            //     {
+            //         arrayNum2++;
+            //         arrayNum2++;
+            //         index = 0;
+            //         //im ready to scream now!
+            //         //i dont wanna explain this code but it joins the first array with the next 9 array elements and when it passes 9 concats it +1 to the concats, meaning when it concats the number of variables theres supposed to be in a single it will add to a new cookie
+            //         // it crashes the site:(
+            //     }
+            // }
+            // alert(daCookies);
             // include "./Control/saves-table.php";
+
+
+
+                //DONT EVEN LOOK AT IT
+
+
         }
             
         function minusDates(daCookies) // for operations you would want to change this to accept a name (like from a button)
         {
+            daArrayName = document.getElementById("name").value;
+            // console.log(daArrayName);
+            console.log(daCookies);
             var millis;
             var c = new Date();
             // var d  = new Date();
             // millis = c.getTime() - d.getTime();
-            millis = c.getTime() - new Date(daCookies[1][1]).getTime();//NEEDS TO BE CHANGED DIFFERENTLY TO USE OTHER COOKIES DYNAMICALLY 
+            millis = c.getTime() - new Date(daCookies[1][1]).getTime();//VARIABLE is equal to a number based on if it equals an arrays first value
         	alert(millis/1000);//DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
         }
 
@@ -187,7 +237,7 @@
         funcRunning ='f'; //this makes sure the function isnt ran while its already running therefore preventing score loss or other bugs
         if(funcRunning == 'f')
         {
-            setInterval(scorePerSecond, 1); //runs in milliseconds
+            setInterval(scorePerSecond, 1000); //runs in milliseconds
         }
         function scorePerSecond() //you dont need to add anything in here to run it every second because setInterval(function, 1000ms) runs it where it lies
         {
