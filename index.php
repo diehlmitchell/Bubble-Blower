@@ -109,7 +109,8 @@
         var SaveNum = 0;//TEMPorary, WILL CHANGE TO A DIFFERENT SAVE NAME SCHEME LATER
      
         function setCookie()  //To add: Make the save name an enterable name which saves the cookie different based on name (will save multiple cookies)
-        {
+        {   
+            deleteAllCookies()
             var d = new Date();
             var TimeSaved = new Date(); //Saves the current time
             d.setTime(d.getTime() + (30*24*60*60)); //sets the expiration a month from current time
@@ -118,7 +119,7 @@
             {   // &%&%& seperates the values of the array for the javascript cookie
                 // The array should go  (Saveame(savenum) = ( Timesaved,Score,Bubbles Per Second Total, PowerUp amonut 1, PowerUp amount 2..... etc. ))
 
-                deleteAllCookies() //clear cookies before you add one
+             //clear cookies before you add one
                 document.cookie =
                     document.getElementById("name").value + "=" +  //Cookie Name       . intScore may already be represented as "i" on score-board.php
                     TimeSaved + "&%&%&" + i + "&%&%&" + floatBPS + "&%&%&" +
@@ -164,7 +165,7 @@
                 var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
                 document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
             }
-        }// This function indeed works
+        }// This function indeed works (or not i guess )
 
 
         // The goal of the function below is to split and store the cookies in an array
@@ -192,14 +193,17 @@
             
             //change name part (does it later idc)
             FloatBPS = daCookies[1][0]
-            i = Math.round(daCookies[2][0])
-            ScriptArray[1][0] = daCookies[3][0]
-            ScriptArray[2][0] = daCookies[4][0]
-            ScriptArray[3][0] = daCookies[5][0]
-            ScriptArray[4][0] = daCookies[6][0]
-            ScriptArray[5][0] = daCookies[7][0]
+            i = Math.round(daCookies[1][0])
+            ScriptArray[0][0] = daCookies[3][0]
+            ScriptArray[1][0] = daCookies[4][0]
+            ScriptArray[2][0] = daCookies[5][0]
+            ScriptArray[3][0] = daCookies[6][0]
+            ScriptArray[4][0] = daCookies[7][0]
+            ScriptArray[5][0] = daCookies[8][0]
             ScriptArray[6][0] = daCookies[8][0]
+            console.log(i)
             console.log(ScriptArray)
+            document.getElementById("output").innerHTML = i; //actually displays correctly very cool
             console.log(daCookies)
         }
             
