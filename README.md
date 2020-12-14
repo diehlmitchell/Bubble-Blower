@@ -5,4 +5,10 @@
 A cookie clicker type game except instead of cookies, ITS BUBBLES!
 
 
-Push check 2
+## Java Cookies:
+notes about the cookies and what I want them to do
+-cookie save function will delete previous or any stored cookies (needs added)
+-it will then store the cookie information (already setup)
+
+--a session may make this go pooey
+--only 1 cookie allowed  

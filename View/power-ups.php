@@ -2,13 +2,13 @@
 
 <?php
     $powerUpsArray = array (  // array("Actual Image Name","Alt","Display Name", amount,Cost, bubbles per second)
-        array("squid-bubble.jpg","Squid-Bubble image", "Squidward",1,10, 0.2),  
+        array("squid-bubble.jpg","Squid-Bubble image", "Squidward",0,10, 0.2),  
         array("patrick-bubble.jpg","patrick-bubble image", "Patrick",0,40, .5),  
-        array("sponge-bubble.jpg","sponge-bubble image", "Sponge-bob",9,100, 1),
+        array("sponge-bubble.jpg","sponge-bubble image", "Sponge-bob",0,100, 1),
         array("hitman-bubble.jpg","hitman-bubble image", "Hitman",0,750, 3),
         array("suds-bob.jpg","suds-bob image", "Suds-Bob",0,3000, 15),
         array("dirty-bubble.png","dirty-bubble image", "Dirty Bubble",0,10000, 50),
-        array("jugg-bubble.jpg","jugg-bubble image", "Bubble jugg",11,100000, 150)
+        array("jugg-bubble.jpg","jugg-bubble image", "Bubble jugg",0,100000, 150)
     );  //end of the power ups array
 ?>
 
@@ -24,7 +24,7 @@
                     <img src='./View/Public/Images/Power-Ups/{$powerUpsArray[$X][0]}'>
                     <div class ='power-up-text' >  
                         <p id='NameOutPut'>{$powerUpsArray[$X][2]}</p>
-                        <p id='AmountOutPut{$X}'>AOP</p>
+                        <p id='AmountOutPut{$X}'>AOP</p>                                                                                       
                         <p id='BPS-Output'> BPS:{$powerUpsArray[$X][5]}</p>     
                         <p id='PriceOutPut{$X}'>POP:{$powerUpsArray[$X][4]}</p>               
                     </div>
