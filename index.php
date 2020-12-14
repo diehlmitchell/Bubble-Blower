@@ -2,6 +2,7 @@
     // session_destroy();
     //if you start a session in the same browser (like the Fortisuremart sessions) then it will store a session in the cookie. this destroys it
 ?>
+<body onload="extractCookies()">
 
 <!DOCTYPE html>
 <html lang="en">

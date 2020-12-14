@@ -12,3 +12,6 @@ notes about the cookies and what I want them to do
 
 --a session may make this go pooey
 --only 1 cookie allowed  
+
+--The way power up prices among other things may need to be entirely over hauled 
+-Reason: when the cookie updates the values,  it 
