@@ -59,7 +59,7 @@
                     include './View/score-board.php';
                 ?>
 
-                <p onClick="myJsFunction()" id="input1">Bubbles Blown: <span id="output"> 0</span></p>
+                <p class="input1">Bubbles Blown: <span id="output"> 0</span></p>
 
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
