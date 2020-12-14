@@ -101,10 +101,10 @@
                 <button onclick="extractCookies()">daCookies output</button>
 
                 <!-- Made a Save Button To Try Out Ajax (Still Figuring it out) -->
-                <button id='cookie-saver' onclick="ajaxCall(floatBPS, 
+                <!-- <button id='cookie-saver' onclick="ajaxCall(floatBPS, 
                                           ScriptArray,
                                           document.getElementById('change').value),
-                                          document.getElementById('output').value)">Save Time</button>
+                                          document.getElementById('output').value)">Save Time</button> -->
                 <!-- <button onclick="getCookie()">get cookie</button> -->
             </div>
 
