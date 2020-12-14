@@ -192,19 +192,25 @@
             //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
             
             //change name part (does it later idc)
-            FloatBPS = daCookies[1][0]
-            i = Math.round(daCookies[1][0])
-            ScriptArray[0][0] = daCookies[3][0]
-            ScriptArray[1][0] = daCookies[4][0]
-            ScriptArray[2][0] = daCookies[5][0]
-            ScriptArray[3][0] = daCookies[6][0]
-            ScriptArray[4][0] = daCookies[7][0]
-            ScriptArray[5][0] = daCookies[8][0]
-            ScriptArray[6][0] = daCookies[8][0]
-            console.log(i)
-            console.log(ScriptArray)
+            
+            i = Math.round(daCookies[1][0]);
+            floatAddedBubbles = daCookies[2][0];
+            funcRunning = "f";
+            ScriptArray[0][0] = daCookies[3][0];
+            ScriptArray[1][0] = daCookies[4][0];
+            ScriptArray[2][0] = daCookies[5][0];
+            ScriptArray[3][0] = daCookies[6][0];
+            ScriptArray[4][0] = daCookies[7][0];
+            ScriptArray[5][0] = daCookies[8][0];
+            ScriptArray[6][0] = daCookies[8][0];
+            console.log(i);
+            console.log(ScriptArray);
             document.getElementById("output").innerHTML = i; //actually displays correctly very cool
-            console.log(daCookies)
+            console.log(daCookies);
+            console.log("floatbelow");
+            console.log(floatBPS);
+            console.log(funcRunning);
+            
         }
             
         function minusDates(daCookies) // for operations you would want to change this to accept a name (like from a button)
@@ -237,7 +243,7 @@
         }
         function scorePerSecond() //you dont need to add anything in here to run it every second because setInterval(function, 1000ms) runs it where it lies
         {
-            funcRunning = 't'
+            funcRunning = 't';
             floatAddedBubbles += floatBPS;
             // console.log(floatAddedBubbles+ " FAB1");
 
@@ -258,11 +264,7 @@
             {
                 funcRunning ='f';
             }
-
         }
-
-
-
 
         // var myVar = null;
         // img = document.getElementById("bubble-size"); 
