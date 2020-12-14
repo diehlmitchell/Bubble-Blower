@@ -2,7 +2,7 @@
 
     <script>
 
-         i = 0; //this I variable is the score (i think)
+         i = 0; //this I variable is the score
 
         function Count() {
             document.getElementById("output").innerHTML = i++ + 1;
