@@ -96,10 +96,15 @@
         <!-- <script>
         function setCookie()  -->
                 <button onclick="deleteAllCookies()">Place Holder</button>
-                <button onclick="setCookie()">Save Time</button>
+                <button id='cookie-saver' onclick="SetCookie()">Save Time</button>
                 <button onclick="minusDates(daCookies)">Calculate Difference</button>
                 <button onclick="extractCookies()">daCookies output</button>
 
+                <!-- Made a Save Button To Try Out Ajax (Still Figuring it out) -->
+                <button id='cookie-saver' onclick="ajaxCall(floatBPS, 
+                                          ScriptArray,
+                                          document.getElementById('change').value),
+                                          document.getElementById('output').value)">Save Time</button>
                 <!-- <button onclick="getCookie()">get cookie</button> -->
             </div>
 
@@ -132,16 +137,16 @@
             //document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; // EXAMPLE COOKIE
         }
 
-        //the goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
-        // function NewBubbles() 
-        // {
-        //     var CurrentTime = new Date();
-        //     var TimeDif;
-        //     var TimeSave = daCookies.SaveTime
-            
-        //     TimeDif = CurrentTime.getTime() - TimeSave.getTime();
-        //     alert(TimeDif);
-        // }
+      he goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
+      function NewBubbles() 
+      {
+          var CurrentTime = new Date();
+          var TimeDif;
+          var TimeSave = daCookies.SaveTime
+       
+          TimeDif = CurrentTime.getTime() - TimeSave.getTime();
+          alert(TimeDif);
+        }
         var nameChangeVariable = document.getElementById("name").value;
         //Change name of 
         function nameChanger() {
@@ -155,76 +160,76 @@
             }
         }
 
-        function deleteAllCookies() 
-        {
-            var cookies = document.cookie.split(";");
-            for (var i = 0; i < cookies.length; i++) 
-            {
-                var cookie = cookies[i];
-                var eqPos = cookie.indexOf("=");
-                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-            }
-        }// This function indeed works (or not i guess )
+         function deleteAllCookies() 
+         {
+             var cookies = document.cookie.split(";");
+             for (var i = 0; i < cookies.length; i++) 
+             {
+                 var cookie = cookies[i];
+                 var eqPos = cookie.indexOf("=");
+                 var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                 document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+             }
+         }// This function indeed works (or not i guess )
 
 
-        // The goal of the function below is to split and store the cookies in an array
-        function extractCookies() 
-        {
-            // daCookies0 = document.cookie
-            // .split(";")
+         The goal of the function below is to split and store the cookies in an array
+         function extractCookies() 
+         {
+              daCookies0 = document.cookie
+              .split(";")
 
-            daCookies = document.cookie //then split the dacookies[1]
-            .split("&%&%&")
-            .map(cookie=> cookie.split("="));
+             daCookies = document.cookie //then split the dacookies[1]
+             .split("&%&%&")
+             .map(cookie=> cookie.split("="));
 
-            var FullDacookies;
-            var arrayNum1 = 0;
-            var arrayNum2 = 1;
-            for(index = 0; index <=daCookies.length; index++)
-            {
-                FullDacookies = daCookies[arrayNum1].concat(daCookies[arrayNum2]);
-            }
-            alert(daCookies);
-            // include "./Control/saves-table.php";
-            
-            //after you extract into different arrays, put the elements into the ScriptArray[X][X] 
-            //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
-            
-            //change name part (does it later idc)
-            
-            i = Math.round(daCookies[1][0]);
-            floatAddedBubbles = daCookies[2][0];
-            funcRunning = "f";
-            ScriptArray[0][0] = daCookies[3][0];
-            ScriptArray[1][0] = daCookies[4][0];
-            ScriptArray[2][0] = daCookies[5][0];
-            ScriptArray[3][0] = daCookies[6][0];
-            ScriptArray[4][0] = daCookies[7][0];
-            ScriptArray[5][0] = daCookies[8][0];
-            ScriptArray[6][0] = daCookies[8][0];
-            console.log(i);
-            console.log(ScriptArray);
-            document.getElementById("output").innerHTML = i; //actually displays correctly very cool
-            console.log(daCookies);
-            console.log("floatbelow");
-            console.log(floatBPS);
-            console.log(funcRunning);
-            
-        }
-            
-        function minusDates(daCookies) // for operations you would want to change this to accept a name (like from a button)
-        {
-            daArrayName = document.getElementById("name").value;
-            // console.log(daArrayName);
-            console.log(daCookies);
-            var millis;
-            var c = new Date();
-            // var d  = new Date();
-            // millis = c.getTime() - d.getTime();
-            millis = c.getTime() - new Date(daCookies[0][1]).getTime();//VARIABLE is equal to a number based on if it equals an arrays first value
-        	alert(millis/1000);//DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
-        }
+             var FullDacookies;
+             var arrayNum1 = 0;
+             var arrayNum2 = 1;
+             for(index = 0; index <=daCookies.length; index++)
+             {
+                 FullDacookies = daCookies[arrayNum1].concat(daCookies[arrayNum2]);
+             }
+             alert(daCookies);
+              include "./Control/saves-table.php";
+          
+             //after you extract into different arrays, put the elements into the ScriptArray[X][X] 
+             //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
+          
+             //change name part (does it later idc)
+          
+             i = Math.round(daCookies[1][0]);
+             floatAddedBubbles = daCookies[2][0];
+             funcRunning = "f";
+             ScriptArray[0][0] = daCookies[3][0];
+             ScriptArray[1][0] = daCookies[4][0];
+             ScriptArray[2][0] = daCookies[5][0];
+             ScriptArray[3][0] = daCookies[6][0];
+             ScriptArray[4][0] = daCookies[7][0];
+             ScriptArray[5][0] = daCookies[8][0];
+             ScriptArray[6][0] = daCookies[8][0];
+             console.log(i);
+             console.log(ScriptArray);
+             document.getElementById("output").innerHTML = i; //actually displays correctly very cool
+             console.log(daCookies);
+             console.log("floatbelow");
+             console.log(floatBPS);
+             console.log(funcRunning);
+          
+         }
+          
+         function minusDates(daCookies) // for operations you would want to change this to accept a name (like from a button)
+         {
+             daArrayName = document.getElementById("name").value;
+             // console.log(daArrayName);
+             console.log(daCookies);
+             var millis;
+             var c = new Date();
+             // var d  = new Date();
+             // millis = c.getTime() - d.getTime();
+             millis = c.getTime() - new Date(daCookies[0][1]).getTime();//VARIABLE is equal to a number based on if it equals an arrays first value
+         	alert(millis/1000);//DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
+         }
 
         // scorePerSecond Function Goal
             // use a setInterval(function, 1000ms) to run the function every second and add floatBPS to score
