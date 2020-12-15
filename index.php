@@ -4,6 +4,8 @@
 ?>
 <body onload="extractCookies()">
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,41 +176,27 @@
         {
             // daCookies0 = document.cookie
             // .split(";")
+            // funcRunning ='f';  //this makes sure the function isnt ran while its already running therefore preventing score loss or other bugs
+            daCookies = document.cookie //then split the dacookies[1]
+            .split("&%&%&")
+            .map(cookie=> cookie.split("="));
 
-                    
-            
-                daCookies = document.cookie //then split the dacookies[1]
-                .split("&%&%&")
-                .map(cookie=> cookie.split("="));
-
-                var FullDacookies;
-                var arrayNum1 = 0;
-                var arrayNum2 = 1;
-                for(index = 0; index <=daCookies.length; index++)
-                {
-                    FullDacookies = daCookies[arrayNum1].concat(daCookies[arrayNum2]);
-                }
-                // include "./Control/saves-table.php";
-            if(daCookies[1][0] >= 0)
+            var FullDacookies;
+            var arrayNum1 = 0;
+            var arrayNum2 = 1;
+            for(index = 0; index <=daCookies.length; index++)
             {
-                daArrayName = document.getElementById("name").value;
-                // console.log(daArrayName);
-                console.log(daCookies);
-                var millis;
-                var c = new Date();
-                // var d  = new Date();
-                // millis = c.getTime() - d.getTime();
-                millis = c.getTime() - new Date(daCookies[0][1]).getTime();//VARIABLE is equal to a number based on if it equals an arrays first value
-                //DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
-                i += Math.round(((millis/1000)*floatBPS));
-                console.log(i);
-                document.getElementById("output").innerHTML = i; //actually displays correctly very cool
-
+                FullDacookies = daCookies[arrayNum1].concat(daCookies[arrayNum2]);
+            }
+            // include "./Control/saves-table.php";
+             if(daCookies[1][0] >= 0)
+            {
                 //after you extract into different arrays, put the elements into the ScriptArray[X][X] 
                 //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
                 
                 //change name part (does it later idc)
-                FloatBPS = daCookies[2][0];
+                funcRunning ='f';  //this makes sure the function isnt ran while its already running therefore preventing score loss or other bugs
+                floatBPS =  parseFloat(daCookies[2][0]);
                 i = Math.round(daCookies[1][0]);
                 ScriptArray[0][0] = daCookies[3][0];
                 ScriptArray[1][0] = daCookies[4][0];
@@ -221,12 +209,14 @@
                 console.log(ScriptArray);
                 document.getElementById("output").innerHTML = i; //actually displays correctly very cool
                 console.log(daCookies);
-                scorePerSecond(); 
+                // scorePerSecond(); 
             }
+            minusDates(daCookies)
         }
             
         function minusDates(daCookies) // for operations you would want to change this to accept a name (like from a button)
         {
+            console.log("da")
             if(daCookies[1][0] >= 0)
             {
                 daArrayName = document.getElementById("name").value;
@@ -240,7 +230,7 @@
                 //DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
                 i += Math.round(((millis/1000)*floatBPS));
                 console.log(i);
-                console.log(floatBPS);
+                console.log(floatBPS + "minusedDates");
                 document.getElementById("output").innerHTML = i; //actually displays correctly very cool
                 // alert(millis/1000);
             }
@@ -256,17 +246,18 @@
         // scorePerSecond Function Goal
         IntAddedBubbles = 0; //the variable that SHOULD be displayed back to the score
         floatAddedBubbles = 0; // floatAddedBubbles should NOT be the displayed variable
-        funcRunning ='f'; //this makes sure the function isnt ran while its already running therefore preventing score loss or other bugs
+        funcRunning ='f';  //this makes sure the function isnt ran while its already running therefore preventing score loss or other bugs
         if(funcRunning == 'f')
         {
             setInterval(scorePerSecond, 1000); //runs in milliseconds
+            // console.log("f");
         }
         function scorePerSecond() //you dont need to add anything in here to run it every second because setInterval(function, 1000ms) runs it where it lies
         {
             funcRunning = 't'
             floatAddedBubbles += floatBPS;
             // console.log(floatAddedBubbles+ " FAB1");
-
+            // console.log(floatBPS + " HENLLO 1");
             if(floatAddedBubbles >= 1)
             {
                 IntAddedBubbles = Math.round(floatAddedBubbles);  // perhaps change this later as this could lag this site on higher bubbles per second
@@ -279,10 +270,14 @@
                 // console.log(i+ "score") //the score is changing, however it is NOT updating its value on the page
                 displayNoCount()
                 funcRunning ='f';
+            // console.log(floatBPS + " HENLLO 2");
+
             }
             else
             {
                 funcRunning ='f';
+            // console.log(floatBPS + " HENLLO 2");
+
             }
 
         }

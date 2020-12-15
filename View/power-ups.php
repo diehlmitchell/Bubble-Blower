@@ -67,7 +67,7 @@
                 // console.log(puAmount1); 
                 //just stored the script array value there so no need for this
 
-                floatBPS += ScriptArray[X][2]; //references the script arrays last value which is labeled bubbles per second above
+                floatBPS += parseFloat(ScriptArray[X][2]); //references the script arrays last value which is labeled bubbles per second above
                 // console.log(floatBPS)
 
                 i = i-CurrentPrice; //i is the amount of score you currently have, problem would be trying to get that variable seen from the current scope
@@ -78,8 +78,7 @@
                 document.getElementById('PriceOutPut'+X).innerHTML = "POP:" + CurrentPrice;
                 document.getElementById('output').innerHTML = i;
             }
-
-        } 
+        }
     </script>
     
     <!-- <div onclick='addPower({$powerUpsArray[$X][3]})' class =  "power-up">
