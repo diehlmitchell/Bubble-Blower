@@ -96,10 +96,10 @@
 
         <!-- <script>
         function setCookie()  -->
-                <button onclick="deleteAllCookies()">Place Holder</button>
-                <button onclick="setCookie()">Save Time</button>
-                <button onclick="minusDates(daCookies)">Calculate Difference</button>
-                <button onclick="extractCookies()">daCookies output</button>
+                <button onclick="deleteAllCookies()">Delete</button>
+                <button onclick="setCookie()">Save Game</button>
+                <button onclick="minusDates(daCookies)">Calculate Difference FD</button>
+                <button onclick="extractCookies()">daCookies output FD</button>
 
                 <!-- <button onclick="getCookie()">get cookie</button> -->
             </div>
@@ -175,50 +175,75 @@
             // daCookies0 = document.cookie
             // .split(";")
 
-            daCookies = document.cookie //then split the dacookies[1]
-            .split("&%&%&")
-            .map(cookie=> cookie.split("="));
+                    
+            
+                daCookies = document.cookie //then split the dacookies[1]
+                .split("&%&%&")
+                .map(cookie=> cookie.split("="));
 
-            var FullDacookies;
-            var arrayNum1 = 0;
-            var arrayNum2 = 1;
-            for(index = 0; index <=daCookies.length; index++)
+                var FullDacookies;
+                var arrayNum1 = 0;
+                var arrayNum2 = 1;
+                for(index = 0; index <=daCookies.length; index++)
+                {
+                    FullDacookies = daCookies[arrayNum1].concat(daCookies[arrayNum2]);
+                }
+                // include "./Control/saves-table.php";
+            if(daCookies[1][0] >= 0)
             {
-                FullDacookies = daCookies[arrayNum1].concat(daCookies[arrayNum2]);
+                daArrayName = document.getElementById("name").value;
+                // console.log(daArrayName);
+                console.log(daCookies);
+                var millis;
+                var c = new Date();
+                // var d  = new Date();
+                // millis = c.getTime() - d.getTime();
+                millis = c.getTime() - new Date(daCookies[0][1]).getTime();//VARIABLE is equal to a number based on if it equals an arrays first value
+                //DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
+                i += Math.round(((millis/1000)*floatBPS));
+                console.log(i);
+                document.getElementById("output").innerHTML = i; //actually displays correctly very cool
+
+                //after you extract into different arrays, put the elements into the ScriptArray[X][X] 
+                //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
+                
+                //change name part (does it later idc)
+                FloatBPS = daCookies[2][0];
+                i = Math.round(daCookies[1][0]);
+                ScriptArray[0][0] = daCookies[3][0];
+                ScriptArray[1][0] = daCookies[4][0];
+                ScriptArray[2][0] = daCookies[5][0];
+                ScriptArray[3][0] = daCookies[6][0];
+                ScriptArray[4][0] = daCookies[7][0];
+                ScriptArray[5][0] = daCookies[8][0];
+                ScriptArray[6][0] = daCookies[8][0];
+                console.log(i);
+                console.log(ScriptArray);
+                document.getElementById("output").innerHTML = i; //actually displays correctly very cool
+                console.log(daCookies);
+                scorePerSecond(); 
             }
-            alert(daCookies);
-            // include "./Control/saves-table.php";
-            
-            //after you extract into different arrays, put the elements into the ScriptArray[X][X] 
-            //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
-            
-            //change name part (does it later idc)
-            FloatBPS = daCookies[1][0]
-            i = Math.round(daCookies[1][0])
-            ScriptArray[0][0] = daCookies[3][0]
-            ScriptArray[1][0] = daCookies[4][0]
-            ScriptArray[2][0] = daCookies[5][0]
-            ScriptArray[3][0] = daCookies[6][0]
-            ScriptArray[4][0] = daCookies[7][0]
-            ScriptArray[5][0] = daCookies[8][0]
-            ScriptArray[6][0] = daCookies[8][0]
-            console.log(i)
-            console.log(ScriptArray)
-            document.getElementById("output").innerHTML = i; //actually displays correctly very cool
-            console.log(daCookies)
         }
             
         function minusDates(daCookies) // for operations you would want to change this to accept a name (like from a button)
         {
-            daArrayName = document.getElementById("name").value;
-            // console.log(daArrayName);
-            console.log(daCookies);
-            var millis;
-            var c = new Date();
-            // var d  = new Date();
-            // millis = c.getTime() - d.getTime();
-            millis = c.getTime() - new Date(daCookies[0][1]).getTime();//VARIABLE is equal to a number based on if it equals an arrays first value
-        	alert(millis/1000);//DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
+            if(daCookies[1][0] >= 0)
+            {
+                daArrayName = document.getElementById("name").value;
+                // console.log(daArrayName);
+                console.log(daCookies);
+                var millis;
+                var c = new Date();
+                // var d  = new Date();
+                // millis = c.getTime() - d.getTime();
+                millis = c.getTime() - new Date(daCookies[0][1]).getTime();//VARIABLE is equal to a number based on if it equals an arrays first value
+                //DACOOKIES TIME AND FINDS THE DIFFERENCE BETWEEN NOW AND WHEN THAT TIME WAS SAVED IN SECONDS
+                i += Math.round(((millis/1000)*floatBPS));
+                console.log(i);
+                console.log(floatBPS);
+                document.getElementById("output").innerHTML = i; //actually displays correctly very cool
+                // alert(millis/1000);
+            }
         }
 
         // scorePerSecond Function Goal
@@ -261,7 +286,6 @@
             }
 
         }
-
 
 
 
