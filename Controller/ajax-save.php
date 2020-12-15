@@ -12,7 +12,10 @@
         "Score" => $GameScore
     ];
 
+    echo "<script>alert('SKREEE');</script>";
+    echo "SKREEE";
     
-    setcookie($CookieGameArray, time() + (86400 * 30), "/"); // 86400 = 1 day
-
+    setcookie("BPS", $GameBPS, time() + (86400 * 30), "/"); // 86400 = 1 day
+    setcookie("Name", $GameName, time() + (86400 * 30), "/");
+    setcookie("Score", $Score, time() + (86400 * 30), "/");
 ?>

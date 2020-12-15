@@ -1,6 +1,13 @@
 <?php
     // session_destroy();
     //if you start a session in the same browser (like the Fortisuremart sessions) then it will store a session in the cookie. this destroys it
+
+    if(isset($_COOKIE['BPS']))
+    {
+        $newBPS = $_COOKIE['BPS'];
+        echo "<script>alert('hey hey we got it {$newBPS}')</script>";  
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +23,8 @@
 <!-- Links -->
 
 <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- Scripts -->
 
 <!-- meta tags  -->
@@ -33,9 +39,7 @@
 
 <!-- Web Grid -->
 <?php
-
-include '../Controller/ajax-save.php';
-include '../Controller/ajax-calls.php';
+    include './Controller/ajax-calls.php';
 ?>
 
     <div class='web-grid'>
@@ -100,16 +104,17 @@ include '../Controller/ajax-calls.php';
         <!-- <script>
         function setCookie()  -->
                 <button onclick="deleteAllCookies()">Place Holder</button>
-                <button id='cookie-saver' onclick="SetCookie()">Save Time</button>
+                <button onclick="SetCookie()">Save Time</button>
                 <button onclick="minusDates(daCookies)">Calculate Difference</button>
                 <button onclick="extractCookies()">daCookies output</button>
 
                 <!-- Made a Save Button To Try Out Ajax (Still Figuring it out) -->
-                <!-- <button id='cookie-saver' onclick="ajaxCall(floatBPS, 
+                <button onclick="AjaxCall(floatBPS, 
                                           ScriptArray,
-                                          document.getElementById('change').value),
-                                          document.getElementById('output').value)">Save Time</button> -->
-                <!-- <button onclick="getCookie()">get cookie</button> -->
+                                          document.getElementById('change').value,
+                                          document.getElementById('output').value)">Cookie Save</button>
+                <button onclick="getCookie()">get cookie</button>
+                <div id='cookie-saver'></div>
             </div>
 
 <!-- This is where the broked code is -->
@@ -141,7 +146,7 @@ include '../Controller/ajax-calls.php';
             //document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; // EXAMPLE COOKIE
         }
 
-      he goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
+    //   he goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
       function NewBubbles() 
       {
           var CurrentTime = new Date();
