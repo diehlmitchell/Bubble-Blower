@@ -77,6 +77,7 @@
                 ScriptArray[X][1] = CurrentPrice;
                 document.getElementById('PriceOutPut'+X).innerHTML = "POP:" + CurrentPrice;
                 document.getElementById('output').innerHTML = i;
+                //this is where i have to fix things later today : aye :
             }
         }
     </script>
