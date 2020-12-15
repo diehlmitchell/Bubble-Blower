@@ -32,10 +32,14 @@
 <body>
 
 <!-- Web Grid -->
+<?php
+
+include '../Controller/ajax-save.php';
+include '../Controller/ajax-calls.php';
+?>
 
     <div class='web-grid'>
 
-                       
         <!-- Left Side -->
 
             <?php
