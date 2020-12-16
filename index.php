@@ -124,8 +124,8 @@
 
                 <!-- Made a Save Button To Try Out Ajax (Still Figuring it out) -->
                 <button onclick="AjaxCall(floatBPS, 
-                                          document.getElementById('bubble-change').value,
-                                          document.getElementById('input1').value)">Cookie Save</button>
+                                          document.getElementById('change').innerHTML,
+                                          countFunction)">Cookie Save</button>
                 <button onclick="getCookie()">get cookie</button>
                 <div id='cookie-saver'></div>
             </div>
@@ -160,8 +160,8 @@
         }
 
     //   he goal the newbubbles function is to calculate the new bubbles based off of the current Bubbles per second
-      function NewBubbles() 
-      {
+        function NewBubbles() 
+        {
           var CurrentTime = new Date();
           var TimeDif;
           var TimeSave = daCookies.SaveTime
@@ -169,7 +169,9 @@
           TimeDif = CurrentTime.getTime() - TimeSave.getTime();
           alert(TimeDif);
         }
-        var nameChangeVariable = document.getElementById("name").value;
+        var nameChangeVariable; 
+        
+
         //Change name of 
         function nameChanger() {
             nameChangeVariable = document.getElementById("name").value;
@@ -179,6 +181,7 @@
             if(nameChangeVariable != "")
             {
                 document.getElementById("change").innerHTML = nameChangeVariable;
+                
             }
         }
 
