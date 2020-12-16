@@ -1,28 +1,3 @@
-<?php
-    // session_destroy();
-    //if you start a session in the same browser (like the Fortisuremart sessions) then it will store a session in the cookie. this destroys it
-
-    if(isset($_COOKIE['BPS']))
-    {
-        $newBPS = $_COOKIE['BPS'];
-        echo "<script>alert('hey hey we got it {$newBPS}')</script>";  
-    }
-
-    if(isset($_COOKIE['Name']))
-    {
-        $newName = $_COOKIE['Name'];
-        echo "<script>alert('hey hey we got it {$newName}')</script>";  
-    }
-
-    if(isset($_COOKIE['Score']))
-    {
-        $newScore = $_COOKIE['Score'];
-        echo "<script>alert('hey hey we got it {$newScore}')</script>";  
-    }
-
-    
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -302,21 +277,47 @@
             img.classList.remove("clickClass");
             img.classList.add("clickClass");
         } 
+
         </script>
-                    <!-- Trigger/Open The Modal -->
-                    <button id="myBtn">Open Modal</button>
 
-                    <!-- The Modal -->
-                    <<div id="myModal" class="modal">
+             <!-- Trigger/Open The Modal -->
+             <button id="myBtn">Open Modal</button>
 
-                    <!-- Modal content -->
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <p>Some text in the Modal..</p>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
 
+            <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
+                </div>
+            </div> 
 
-                        </div>
-                    </div> 
+            <?php
+                // session_destroy();
+                //if you start a session in the same browser (like the Fortisuremart sessions) then it will store a session in the cookie. this destroys it
+
+                if(isset($_COOKIE['BPS']))
+                {
+                    $newBPS = $_COOKIE['BPS'];
+                    echo "<script>alert('hey hey we got it {$newBPS}')</script>";  
+                }
+
+                if(isset($_COOKIE['Name']))
+                {
+                    $newName = $_COOKIE['Name'];
+                    echo "<script> document.getElementById('change').innerHTML = '{$newName}'</script>";  
+                }
+
+                if(isset($_COOKIE['Score']))
+                {
+                    $newScore = $_COOKIE['Score'];
+                    echo "<script>i = {$newScore};displayNoCount()</script>";  
+                }
+
+            
+            ?>
+                   
 
     </div>  
 <!-- Web Grid -->
