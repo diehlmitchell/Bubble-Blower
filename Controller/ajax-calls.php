@@ -10,7 +10,6 @@
             url: "./Controller/ajax-save.php",
             data: "BPS=" + GameBPS + "&Name=" + GameName + "&Score=" + GameScore,
             success: function(data){
-                alert('sdsd');
                 $("#cookie-saver").html(data);
             },
             error: function(data){
