@@ -5,10 +5,10 @@
         array("squid-bubble.jpg","Squid-Bubble image", "Squidward",0,10, 0.2),  
         array("patrick-bubble.jpg","patrick-bubble image", "Patrick",0,40, .5),  
         array("sponge-bubble.jpg","sponge-bubble image", "Sponge-bob",0,100, 1),
-        array("hitman-bubble.jpg","hitman-bubble image", "Hitman",0,750, 3),
+        array("hitman-bubble.jpg","hitman-bubble image", "Hitman",0,500, 3),
         array("suds-bob.jpg","suds-bob image", "Suds-Bob",0,3000, 15),
         array("dirty-bubble.png","dirty-bubble image", "Dirty Bubble",0,10000, 50),
-        array("jugg-bubble.jpg","jugg-bubble image", "Bubble jugg",0,100000, 150)
+        array("jugg-bubble.jpg","jugg-bubble image", "Bubble jugg",0,75000, 150)
     );  //end of the power ups array
 ?>
 

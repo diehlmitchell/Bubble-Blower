@@ -224,7 +224,7 @@
                 }
                 for(X = 0; X < 7; X++)
                 {
-                    document.getElementById("PriceOutPut"+X).innerHTML = ScriptArray[X][1];
+                    document.getElementById("PriceOutPut"+X).innerHTML = "POP:" + ScriptArray[X][1];
                     //should go and redisplay all the amount out puts based on the ScriptArray
                     //works, gottem
                 }
