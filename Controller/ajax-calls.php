@@ -1,14 +1,14 @@
 <script>
 
     //Ajax Function 
-    function AjaxCall(GameBPS, GamePowerup, GameName, GameScore)
+    function AjaxCall(GameBPS, GameName, GameScore)
     {
         //Ajax Function
         $.ajax({
 
             type: "POST",
             url: "./Controller/ajax-save.php",
-            data: "BPS=" + GameBPS + "&Powerup=" + GamePowerup + "&Name=" + GameName + "&Score=" + GameScore,
+            data: "BPS=" + GameBPS + "&Name=" + GameName + "&Score=" + GameScore,
             success: function(data){
                 alert('sdsd');
                 $("#cookie-saver").html(data);

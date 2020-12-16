@@ -8,6 +8,20 @@
         echo "<script>alert('hey hey we got it {$newBPS}')</script>";  
     }
 
+    if(isset($_COOKIE['Name']))
+    {
+        $newName = $_COOKIE['Name'];
+        echo "<script>alert('hey hey we got it {$newName}')</script>";  
+    }
+
+    if(isset($_COOKIE['Score']))
+    {
+        $newScore = $_COOKIE['Score'];
+        echo "<script>alert('hey hey we got it {$newScore}')</script>";  
+    }
+
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +68,7 @@
 
         <!-- Center  -->
             <div class='bubble-pics' style='background-image: url(./View/Public/Images/Bubble.gif);'>
-                <h1 class="change-name" data-toggle="modal" data-target="#myModal"><span class='hover-span' id="change">Bubble Blower</span><img src='./View/Public/Images/pencil.png' class="pencil"></h1>
+                <h1 class="change-name" id="bubble-change" data-toggle="modal" data-target="#myModal"><span class='hover-span' id="change">Bubble Blower</span><img src='./View/Public/Images/pencil.png' class="pencil"></h1>
                 <img onClick="Count()" class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
         <!-- Center  -->
@@ -67,7 +81,7 @@
                     include './View/score-board.php';
                 ?>
 
-                <p class="input1">Bubbles Blown: <span id="output"> 0</span></p>
+                <p id="input1" class="input1">Bubbles Blown: <span id="output"> 0</span></p>
 
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
@@ -110,9 +124,8 @@
 
                 <!-- Made a Save Button To Try Out Ajax (Still Figuring it out) -->
                 <button onclick="AjaxCall(floatBPS, 
-                                          ScriptArray,
-                                          document.getElementById('change').value,
-                                          document.getElementById('output').value)">Cookie Save</button>
+                                          document.getElementById('bubble-change').value,
+                                          document.getElementById('input1').value)">Cookie Save</button>
                 <button onclick="getCookie()">get cookie</button>
                 <div id='cookie-saver'></div>
             </div>
@@ -182,7 +195,7 @@
          }// This function indeed works (or not i guess )
 
 
-         The goal of the function below is to split and store the cookies in an array
+        //  The goal of the function below is to split and store the cookies in an array
          function extractCookies() 
          {
               daCookies0 = document.cookie
@@ -200,8 +213,6 @@
                  FullDacookies = daCookies[arrayNum1].concat(daCookies[arrayNum2]);
              }
              alert(daCookies);
-              include "./Control/saves-table.php";
-          
              //after you extract into different arrays, put the elements into the ScriptArray[X][X] 
              //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
           
@@ -280,29 +291,29 @@
             }
         }
 
-        // var myVar = null;
-        // img = document.getElementById("bubble-size"); 
+        var myVar = null;
+        img = document.getElementById("bubble-size"); 
 
-        // function bubbleClicker()
-        // {
-        //     img.classList.remove("clickClass");
-        //     img.classList.add("clickClass");
-        // } 
+        function bubbleClicker()
+        {
+            img.classList.remove("clickClass");
+            img.classList.add("clickClass");
+        } 
         </script>
-                    <!-- Trigger/Open The Modal
+                    <!-- Trigger/Open The Modal -->
                     <button id="myBtn">Open Modal</button>
 
                     <!-- The Modal -->
-                    <!-- <div id="myModal" class="modal"> -->
+                    <<div id="myModal" class="modal">
 
                     <!-- Modal content -->
-                        <!-- <div class="modal-content">
+                        <div class="modal-content">
                             <span class="close">&times;</span>
                             <p>Some text in the Modal..</p>
 
 
                         </div>
-                    </div> -->
+                    </div> 
 
     </div>  
 <!-- Web Grid -->
