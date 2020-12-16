@@ -121,7 +121,7 @@
             if (SaveNum == SaveNum)
             {   // &%&%& seperates the values of the array for the javascript cookie
                 // The array should go  (Saveame(savenum) = ( Timesaved,Score,Bubbles Per Second Total, PowerUp amonut 1, PowerUp amount 2..... etc. ))
-
+        console.log("name is: "+ document.getElementById("name").value);
              //clear cookies before you add one
                 document.cookie =
                     document.getElementById("name").value + "=" +  //Cookie Name       . intScore may already be represented as "i" on score-board.php
@@ -132,6 +132,7 @@
                     ScriptArray[0][1] + "&%&%&" + ScriptArray[1][1] + "&%&%&" + ScriptArray[2][1] + "&%&%&" +
                     ScriptArray[3][1] + "&%&%&" + ScriptArray[4][1] + "&%&%&" + ScriptArray[5][1] + "&%&%&" + ScriptArray[6][1] + "; "
                     + expires + ";path=/";
+            
                     //Cookies and Cofvefe ? :)
             }
             // alert(document.cookie) //displays all java cookies                  
@@ -198,6 +199,8 @@
                 //after you extract into different arrays, put the elements into the ScriptArray[X][X] 
                 //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
                 //change name part (does it later idc)
+                document.getElementById("change").innerHTML = daCookies[0][0];
+                // document.getElementById("change").innerHTML = nameChangeVariable;
                 funcRunning ='f';  //this makes sure the function isnt ran while its already running therefore preventing score loss or other bugs
                 floatBPS =  parseFloat(daCookies[2][0]);
                 i = Math.round(daCookies[1][0]);

@@ -73,7 +73,7 @@
                 
 
 
-
+                setCookie();
                 document.getElementById('output').innerHTML = i;
                 //this is where i have to fix things later today
             }
