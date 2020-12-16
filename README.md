@@ -20,3 +20,8 @@ notes about the cookies and what I want them to do
 ## Java Cookie remaining
 ### What remains is doing the power ups 
 ### would have to upate the power ups on load and do their cookies tooo *sigh*
+
+### Useful id's:
+### PriceOutPut(X)
+### AmountOutPut(X)
+### X = 0 through 6

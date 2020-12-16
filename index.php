@@ -98,10 +98,10 @@
 
         <!-- <script>
         function setCookie()  -->
-                <button onclick="deleteAllCookies()">Delete</button>
+                <button onclick="deleteAllCookies()">Delete Save</button>
                 <button onclick="setCookie()">Save Game</button>
-                <button onclick="minusDates(daCookies)">Calculate Difference FD</button>
-                <button onclick="extractCookies()">daCookies output FD</button>
+                <!-- <button onclick="minusDates(daCookies)">Calculate Difference FD</button>
+                <button onclick="extractCookies()">daCookies output FD</button> -->
 
                 <!-- <button onclick="getCookie()">get cookie</button> -->
             </div>
@@ -127,10 +127,14 @@
                     document.getElementById("name").value + "=" +  //Cookie Name       . intScore may already be represented as "i" on score-board.php
                     TimeSaved + "&%&%&" + i + "&%&%&" + floatBPS + "&%&%&" +
                     ScriptArray[0][0] + "&%&%&" + ScriptArray[1][0] + "&%&%&" + ScriptArray[2][0] + "&%&%&" +
-                    ScriptArray[3][0] + "&%&%&" + ScriptArray[4][0] + "&%&%&" + ScriptArray[5][0] + "&%&%&" + ScriptArray[6][0] + "; "
+                    ScriptArray[3][0] + "&%&%&" + ScriptArray[4][0] + "&%&%&" + ScriptArray[5][0] + "&%&%&" + ScriptArray[6][0] + "&%&%&" +
+                    //POWER UPS SPLIT: UP IS AMOUNT; BELOW IS PRICE
+                    ScriptArray[0][1] + "&%&%&" + ScriptArray[1][1] + "&%&%&" + ScriptArray[2][1] + "&%&%&" +
+                    ScriptArray[3][1] + "&%&%&" + ScriptArray[4][1] + "&%&%&" + ScriptArray[5][1] + "&%&%&" + ScriptArray[6][1] + "; "
                     + expires + ";path=/";
+                    //Cookies and Cofvefe ? :)
             }
-            alert(document.cookie) //displays all java cookies                  
+            // alert(document.cookie) //displays all java cookies                  
             
             //document.cookie = "username=John Smith; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/"; // EXAMPLE COOKIE
         }
@@ -193,18 +197,37 @@
             {
                 //after you extract into different arrays, put the elements into the ScriptArray[X][X] 
                 //as a reminder, ScriptArray[A][B] goes A=PowerUpID B="element changed (0) aka amount"
-                
                 //change name part (does it later idc)
                 funcRunning ='f';  //this makes sure the function isnt ran while its already running therefore preventing score loss or other bugs
                 floatBPS =  parseFloat(daCookies[2][0]);
                 i = Math.round(daCookies[1][0]);
-                ScriptArray[0][0] = daCookies[3][0];
-                ScriptArray[1][0] = daCookies[4][0];
-                ScriptArray[2][0] = daCookies[5][0];
-                ScriptArray[3][0] = daCookies[6][0];
-                ScriptArray[4][0] = daCookies[7][0];
-                ScriptArray[5][0] = daCookies[8][0];
-                ScriptArray[6][0] = daCookies[8][0];
+                ScriptArray[0][0] =  parseFloat(daCookies[3][0]);
+                ScriptArray[1][0] =  parseFloat(daCookies[4][0]);
+                ScriptArray[2][0] =  parseFloat(daCookies[5][0]);
+                ScriptArray[3][0] =  parseFloat(daCookies[6][0]);
+                ScriptArray[4][0] =  parseFloat(daCookies[7][0]);
+                ScriptArray[5][0] =  parseFloat(daCookies[8][0]);
+                ScriptArray[6][0] =  parseFloat(daCookies[9][0]);
+                //BELOW IS COST OF POWER UPS (could'dve done this better by doing a for loop like below but why do that when I can copy and paste easier)
+                ScriptArray[0][1] =  parseFloat(daCookies[10][0]);
+                ScriptArray[1][1] =  parseFloat(daCookies[11][0]);
+                ScriptArray[2][1] =  parseFloat(daCookies[12][0]);
+                ScriptArray[3][1] =  parseFloat(daCookies[13][0]);
+                ScriptArray[4][1] =  parseFloat(daCookies[14][0]);
+                ScriptArray[5][1] =  parseFloat(daCookies[15][0]);
+                ScriptArray[6][1] =  parseFloat(daCookies[16][0]);
+                for(X = 0; X < 7; X++)
+                {
+                    document.getElementById("AmountOutPut"+X).innerHTML = ScriptArray[X][0];
+                    //should go and redisplay all the amount out puts based on the ScriptArray
+                    //works, gottem
+                }
+                for(X = 0; X < 7; X++)
+                {
+                    document.getElementById("PriceOutPut"+X).innerHTML = ScriptArray[X][1];
+                    //should go and redisplay all the amount out puts based on the ScriptArray
+                    //works, gottem
+                }
                 console.log(i);
                 console.log(ScriptArray);
                 document.getElementById("output").innerHTML = i; //actually displays correctly very cool
@@ -233,6 +256,8 @@
                 console.log(floatBPS + "minusedDates");
                 document.getElementById("output").innerHTML = i; //actually displays correctly very cool
                 // alert(millis/1000);
+                console.log("PriceOutPut1 is" + document.getElementById("PriceOutPut1".value))
+
             }
         }
 

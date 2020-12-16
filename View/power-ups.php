@@ -46,18 +46,10 @@
             [0,75000, 150]
             ];
             floatBPS = 0;
-        // $powerUpsArray = $powerUpsArray+1;
+            // the goal of this function is to add amounts to the power ups and increase price based off of that 
         function AddsCount(X) 
         { 
             var CurrentPrice = ScriptArray[X][1];     
-            //DOESNT WORK AM I AM STOPID? ! I DUNT KKONWO 
-            //the problem: the loop is never ran on click/ or more precisely the function does not have an effect when the onclick is ran
-            //possible solutions/causes: 
-        //1   // It is very possible that the scope of some variables or values are not visible to this function so it cannot run or do math without those vars
-        //2   // it is unlikely that the more expensive cards are writing their boxes overtop the cheaper options, so it cant be run
-        //3   //it is somewhat likely that the function and if statement are running correctly, but theres a logic error and i placed comparable operators wrong
-              // or the scriptX is the largest power up number and therefore too expensive
-
             if(CurrentPrice <= i)
             {
                 ScriptArray[X][0]++; //amount
@@ -76,8 +68,14 @@
                 CurrentPrice = Math.round(ScriptArray[X][1]+(.15*ScriptArray[X][1]));
                 ScriptArray[X][1] = CurrentPrice;
                 document.getElementById('PriceOutPut'+X).innerHTML = "POP:" + CurrentPrice;
+
+                
+                
+
+
+
                 document.getElementById('output').innerHTML = i;
-                //this is where i have to fix things later today : aye :
+                //this is where i have to fix things later today
             }
         }
     </script>
