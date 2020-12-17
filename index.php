@@ -22,7 +22,6 @@
                 <img onClick="Count()" class='bubble-png' src='./View/Public/Images/Bubble.png'>
             </div>
         <!-- Center  -->
-           
 
         <!-- Scoreboard (Right Side) -->
             <div class='score-board-grid'>
@@ -271,25 +270,6 @@
             <?php
                 // session_destroy();
                 //if you start a session in the same browser (like the Fortisuremart sessions) then it will store a session in the cookie. this destroys it
-
-                if(isset($_COOKIE['BPS']))
-                {
-                    $newBPS = $_COOKIE['BPS'];
-                    echo "<script>alert('hey hey we got it {$newBPS}')</script>";  
-                }
-
-                if(isset($_COOKIE['Name']))
-                {
-                    $newName = $_COOKIE['Name'];
-                    echo "<script> document.getElementById('change').innerHTML = '{$newName}'</script>";  
-                }
-
-                if(isset($_COOKIE['Score']))
-                {
-                    $newScore = $_COOKIE['Score'];
-                    echo "<script>i = {$newScore};displayNoCount()</script>";  
-                }
-
             
             ?>
                    
